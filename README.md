@@ -7,6 +7,7 @@ Each directory contains a download, configure and build scripts, along with othe
 
 ## Tree
 
+```text
 .
 ├── README.md
 ├── hpcg
