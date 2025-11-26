@@ -1,0 +1,9 @@
+# Forwards selected targets to ../scripts/hpl-gcc/Makefile
+HPL_REPO := $(HOME)/Wits-A-2025/scripts/hpl-gcc
+
+HPL_TARGETS := all check download build hpldat hosts run clean
+
+.PHONY: $(HPL_TARGETS)
+
+$(HPL_TARGETS):
+	@$(MAKE) -C $(HPL_REPO) $@ $(MAKEFLAGS)
