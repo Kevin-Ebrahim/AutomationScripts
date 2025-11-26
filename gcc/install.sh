@@ -2,61 +2,69 @@
 
 set -euo pipefail
 
-GCC_VERSION="${GCC_VERSION:-15.2.0}"
+trap 'ec=$?; (( ec != 0 )) && echo "Build/install failed (exit $ec)." >&2' EXIT
+trap 'echo "Script interrupted" >&2; exit 2' INT TERM
 
-BUILD_ROOT="${BUILD_ROOT:-$HOME/software}"
-BUILD_DIR="${BUILD_DIR:-$BUILD_ROOT/gcc-$GCC_VERSION-build}"
+GCC_VERSION="15.2.0"
 
-# Must match configure script
-GCC_PREFIX="${GCC_PREFIX:-/opt/gcc/$GCC_VERSION}"
-GCC_OPT_FLAGS="${GCC_OPT_FLAGS:--O3 -march=native -mtune=native}"
+WORK="/var/tmp/gcc-${GCC_VERSION}-work"
+BUILD="${WORK}/build"
 
-MAKE_JOBS="${MAKE_JOBS:-$(nproc)}"
+GCC_PREFIX="$HOME/compilers/gcc/gcc-${GCC_VERSION}"
+GCC_OPT_FLAGS="-O2 -pipe"
 
-BOOT_CFLAGS="${BOOT_CFLAGS:-$GCC_OPT_FLAGS}"
+CORES=$(nproc)
+BOOT_CFLAGS="$GCC_OPT_FLAGS"
 
-echo "Build directory:  $BUILD_DIR"
 echo "Install prefix:   $GCC_PREFIX"
-echo "Make jobs:        $MAKE_JOBS"
-echo "BOOT_CFLAGS:      $BOOT_CFLAGS"
+echo "Build directory:  $BUILD"
+echo "Cores:            $CORES"
+echo "FLAGS:            $BOOT_CFLAGS"
 echo
 
-if [[ ! -d "$BUILD_DIR" ]]; then
-    echo "ERROR: Build directory '$BUILD_DIR' not found. Run gcc15_configure.sh first." >&2
+if [[ ! -d "$BUILD" ]]; then
+    echo "ERROR: Build directory '$BUILD' not found. Run configure.sh first." >&2
     exit 1
 fi
 
-cd "$BUILD_DIR"
+cd "$BUILD"
 
-echo "=== Building GCC 15.2.0 with profile-guided bootstrap ==="
+echo "=== Building GCC 15.2.0 with bootstrap ==="
 echo "This may take a while..."
 
-make -j"$MAKE_JOBS" BOOT_CFLAGS="$BOOT_CFLAGS" profiledbootstrap
+make -j"$CORES" BOOT_CFLAGS="$BOOT_CFLAGS" bootstrap
 
 echo
 echo "=== Installing into $GCC_PREFIX ==="
+mkdir -p "$(dirname "$GCC_PREFIX")"
+
 if [[ -w "$(dirname "$GCC_PREFIX")" ]]; then
-    make install
+    make -j"$CORES" install
 else
     echo "Install prefix parent directory not writable by current user; using sudo."
-    sudo make install
+    sudo make -j"$CORES" install
 fi
 
 echo
+
+# modulefile
+MODULE_ROOT="$HOME/modulefiles/gcc"
+mkdir -p "$MODULE_ROOT"
+cat >"$MODULE_ROOT"/${GCC_VERSION} <<EOF
+#%Module1.0
+module-whatis "GCC ${GCC_VERSION}"
+set root ${GCC_PREFIX}
+prepend-path PATH            \$root/bin
+prepend-path LD_LIBRARY_PATH \$root/lib64
+prepend-path MANPATH         \$root/share/man
+EOF
+
+echo "Tip: ensure module use --append $HOME/modulefiles is in /etc/profile.d on nodes."
+echo "Done. Load with:  module load gcc/${GCC_VERSION}"
+
 echo "=== Sanity check ==="
 if [[ -x "$GCC_PREFIX/bin/gcc" ]]; then
     "$GCC_PREFIX/bin/gcc" --version | head -n1
 else
     echo "WARNING: $GCC_PREFIX/bin/gcc not found after install."
 fi
-
-cat <<EOF
-
-Done.
-
-To use this GCC in your shell:
-  export PATH="$GCC_PREFIX/bin:\$PATH"
-  export LD_LIBRARY_PATH="$GCC_PREFIX/lib64:$GCC_PREFIX/lib:\$LD_LIBRARY_PATH"
-
-Or wire it up via an Lmod modulefile as 'gcc/15.2.0' that prepends those paths.
-EOF
