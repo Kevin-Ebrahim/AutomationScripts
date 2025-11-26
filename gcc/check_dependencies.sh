@@ -2,23 +2,34 @@
 
 set -euo pipefail
 
+#!/bin/bash
+
+set -euo pipefail
+
+# Commands we expect in PATH (no duplicates of package names below)
 REQUIRED_CMDS=(
     gcc
     g++
     make
-    wget
     tar
-    xz
 )
 
-# Debian/Ubuntu dev packages for GCC prereqs:
+# Debian/Ubuntu dev packages for GCC prereqs (no overlap with REQUIRED_CMDS)
 REQUIRED_PKGS=(
     build-essential
+
     wget
     curl
+    rsync
+    xz-utils
+
+    gawk
     flex
     bison
     texinfo
+    pkg-config
+    python3
+
     libgmp-dev
     libmpfr-dev
     libmpc-dev
@@ -55,7 +66,6 @@ else
     echo "dpkg not found; skipping package-level checks (non-Debian/Ubuntu host?)."
 fi
 
-# Check host GCC version (needs a reasonably modern C++ compiler). :contentReference[oaicite:3]{index=3}
 echo
 if command -v gcc &>/dev/null; then
     host_ver_full="$(gcc -dumpfullversion 2>/dev/null || gcc -dumpversion)"
