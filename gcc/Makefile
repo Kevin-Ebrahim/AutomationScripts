@@ -1,6 +1,6 @@
 .PHONY: all check download configure install
 
-all: build
+all: install
 
 check:
 	bash ./check_dependencies.sh
