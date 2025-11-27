@@ -1,15 +1,19 @@
-.PHONY: all download configure build clean
+.PHONY: all check download configure build clean
 
-download:
+all: build
+
+check:
+	bash ./check_dependencies.sh
+
+download: check
 	bash ./download.sh
 
-configure:
+configure: download
 	bash ./configure.sh
 
-build:
+build: configure
 	bash ./build.sh
 
 clean:
 	bash ./clean.sh
 
-all: download configure build
