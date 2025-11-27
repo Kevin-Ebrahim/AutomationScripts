@@ -22,22 +22,19 @@ HPCG_DIR     ?= $(HOME)/benchmarks/hpcg/hpcg-$(HPCG_VERSION)
 BIN_DIR      := $(HPCG_DIR)/bin/$(ARCH)
 HPCGDAT       = $(BIN_DIR)/HPCG.dat
 
-.PHONY: all check download build hpcgdat hosts run clean
+.PHONY: all check download build hpcgdat hosts run clean regen
 all: run
 
-# Hostfile generation --------------------------------------------------------
 hosts: $(HOSTFILE)
 
-$(HOSTFILE):
+$(HOSTFILE): regen
 	@echo "=== Generating hostfiles ==="
 	@echo "HOSTS_DIR='$(HOSTS_DIR)'"
 	@HOSTS_DIR="$(HOSTS_DIR)" NODES="$(NODES)" SLOTS="$(SLOTS)" $(SCRIPT_DIR)/make_hosts.sh
 
-# Dependency checks ----------------------------------------------------------
 check:
 	@$(SCRIPT_DIR)/check_dependencies.sh
 
-# Download / Build -----------------------------------------------------------
 download: check
 	@echo "=== Ensuring HPCG $(HPCG_VERSION) source ==="
 	@if [ -d "$(HPCG_DIR)/setup" ]; then \
@@ -51,7 +48,6 @@ build: download
 	@echo "=== Building HPCG (ARCH=$(ARCH)) ==="
 	@ARCH=$(ARCH) $(SCRIPT_DIR)/build_hpcg.sh
 
-# HPCG.dat handling ----------------------------------------------------------
 hpcgdat: $(HPCGDAT)
 
 # Treat HPCG.dat as a file target; generate only when asked or if missing
@@ -59,15 +55,12 @@ $(HPCGDAT): build
 	@echo "=== Generating HPCG.dat (ARCH=$(ARCH)) ==="
 	@ARCH=$(ARCH) NX=$(NX) NY=$(NY) NZ=$(NZ) RUN_TIME=$(RUN_TIME) $(SCRIPT_DIR)/make_hpcg_dat.sh
 
-# Run ------------------------------------------------------------------------
 run: build
 	@echo "=== Running HPCG benchmark (ARCH=$(ARCH), NP=$(NP)) ==="
-	@[ -f "$(HOSTFILE)" ] || $(MAKE) hosts
+	@[ -f "$(HOSTFILE)" ] || $(MAKE) $(HOSTFILE)
 	@[ -f "$(HPCGDAT)" ] || ( echo "No HPCG.dat found -> generating a default one."; ARCH=$(ARCH) $(SCRIPT_DIR)/make_hpcg_dat.sh )
 	@ARCH=$(ARCH) NP=$(NP) HOSTFILE=$(HOSTFILE) $(SCRIPT_DIR)/run_hpcg.sh
 
-# Clean ----------------------------------------------------------------------
 clean:
 	@echo "=== Removing HPCG build tree $(HPCG_DIR) ==="
 	@ARCH=$(ARCH) $(SCRIPT_DIR)/clean_hpcg.sh
-

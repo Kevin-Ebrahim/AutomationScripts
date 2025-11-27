@@ -1,11 +1,6 @@
-#!/usr/bin/env bash
-# make_hosts.sh
-#
-# Usage examples:
-#   ./make_hosts.sh
-#   NODES="headnode:16 node1:24 node2:16" ./make_hosts.sh
-#
-# Env vars (all optional):
+#!/bin/bash
+
+# Env vars
 #   HOSTS_DIR  – where to write hostfiles (default: $HOME/Wits-A-2025/scripts/hostfiles)
 #   OMPI_HOSTS – Open MPI hostfile path (default: $HOSTS_DIR/hosts.ompi)
 #   IMPI_HOSTS – Intel MPI hostfile path (default: $HOSTS_DIR/hosts.intel)
@@ -26,17 +21,17 @@ mkdir -p "$HOSTS_DIR"
 
 # NODES can be like "node1:24 node2:16" or just "node1 node2" (then NSLOTS is used)
 for n in $NODES; do
-	if [[ "$n" == *:* ]]; then
-		node=${n%%:*}
-		slots=${n##*:}
-	else
-		node="$n"
-		slots="$NSLOTS"
-	fi
-	# Open MPI hostfile format: "node slots=N"
-	echo "$node slots=$slots" >>"$OMPI_HOSTS"
-	# Intel MPI hostfile format: "node:N"
-	echo "$node:$slots" >>"$IMPI_HOSTS"
+    if [[ "$n" == *:* ]]; then
+        node=${n%%:*}
+        slots=${n##*:}
+    else
+        node="$n"
+        slots="$NSLOTS"
+    fi
+    # Open MPI hostfile format: "node slots=N"
+    echo "$node slots=$slots" >>"$OMPI_HOSTS"
+    # Intel MPI hostfile format: "node:N"
+    echo "$node:$slots" >>"$IMPI_HOSTS"
 done
 
 echo "Hostfiles generated:"

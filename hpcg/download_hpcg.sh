@@ -8,7 +8,6 @@ REPO_URL="https://github.com/hpcg-benchmark/hpcg.git"
 INSTALL_DIR="$HOME/benchmarks/hpcg/hpcg-${HPCG_VERSION}"
 PARENT_DIR="$(dirname "$INSTALL_DIR")"
 
-# Fail early if the destination already exists
 if [[ -d "$INSTALL_DIR" ]]; then
     echo "Error: Directory $INSTALL_DIR already exists. Remove it or choose another path." >&2
     exit 1
@@ -20,12 +19,6 @@ if [[ ! -w "$PARENT_DIR" ]]; then
     echo "Error: $PARENT_DIR is not writable by $(whoami)."
     echo "Fix with:"
     echo "  sudo chown -R \"$USER\":\"$(id -gn)\" \"$PARENT_DIR\""
-    exit 1
-fi
-
-# Check for git
-if ! command -v git >/dev/null 2>&1; then
-    echo "Error: git not found in PATH. Please install git." >&2
     exit 1
 fi
 

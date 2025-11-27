@@ -1,32 +1,37 @@
 #!/bin/bash
-set -euo pipefail
-MAKEFILE="$1" # e.g., Make.openblas_ompi_gcc
-ARCH="$2"     # e.g., openblas_ompi_gcc
-HPCG_DIR="$3" # e.g., $HOME/benchmarks/hpcg/hpcg-3.1
 
-# Use MPI C++ compiler for HPCG
-MPICXX="/usr/bin/mpicxx"
-if [[ ! -x "$MPICXX" ]]; then
-    echo "ERROR: $MPICXX not found. Install OpenMPI (mpicxx) or adjust path." >&2
+set -euo pipefail
+
+MAKEFILE="$1"
+ARCH="$2"
+HPCG_DIR="$3"
+
+# System MPICXX
+MPICXX_BIN="${MPICXX:-$(command -v mpicxx || true)}"
+if [[ -z "${MPICXX_BIN}" ]]; then
+    echo "ERROR: mpicxx not found on PATH (or MPICXX not set)." >&2
     exit 1
 fi
 
-# Set top-level directory path
+# HPCG Settings
 sed -i "s|^TOPdir *=.*|TOPdir = ${HPCG_DIR}|" "$MAKEFILE"
-
-# Set ARCH label in Makefile (if applicable, some templates use $(arch) from command line)
+sed -i -E 's|^BIN[[:space:]]*=.*|BIN = $(TOPdir)/bin/$(arch)|' "$MAKEFILE"
 sed -i "s/^arch *=.*/arch = ${ARCH}/" "$MAKEFILE" 2>/dev/null || true
 
-# Configure compilers and MPI paths for HPCG
-sed -i -E "s|^CXX[[:space:]]*=.*|CXX = ${MPICXX}|" "$MAKEFILE"
+# Compilers / linker
+sed -i -E "s|^CXX[[:space:]]*=.*|CXX = ${MPICXX_BIN}|" "$MAKEFILE"
 sed -i -E "s|^LINKER[[:space:]]*=.*|LINKER = \$(CXX)|" "$MAKEFILE"
-# Clear MPI include/lib variables (mpicxx will handle these)
+
 sed -i "s|^MPdir *=.*|MPdir =|" "$MAKEFILE"
 sed -i "s|^MPinc *=.*|MPinc =|" "$MAKEFILE"
 sed -i "s|^MPlib *=.*|MPlib =|" "$MAKEFILE"
 
-# (Optional) Disable OpenMP for now to use MPI-only
-sed -i "s|^HPCG_OPTS *=.*|HPCG_OPTS = -DHPCG_NO_OPENMP|" "$MAKEFILE" ||
-    echo "HPCG_OPTS += -DHPCG_NO_OPENMP" >>"$MAKEFILE"
+# Prefer MPI-only by default: add -DHPCG_NO_OPENMP if not already present
+if grep -q '^HPCG_OPTS' "$MAKEFILE"; then
+    grep -q '\-DHPCG_NO_OPENMP' "$MAKEFILE" || sed -i 's|^HPCG_OPTS *= *\(.*\)$|HPCG_OPTS = \1 -DHPCG_NO_OPENMP|' "$MAKEFILE"
+else
+    echo 'HPCG_OPTS = -DHPCG_NO_OPENMP' >>"$MAKEFILE"
+fi
 
 echo "$(basename "$MAKEFILE") configured for ARCH=${ARCH}"
+
