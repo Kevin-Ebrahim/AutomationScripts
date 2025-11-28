@@ -19,6 +19,8 @@ run_installer_user() {
     local file="$1"
 
     cd "$DOWNLOAD_DIR" || exit 1
+    sudo apt update
+    sudo apt-get install -y xdg-utils libxcb-dri3-0 libnotify4 libgbm1 libatspi2.0-0 libgtk-3-0
 
     echo "Running installer: $file"
     # Non-root + --silent uses default user install dir: ~/intel/oneapi
