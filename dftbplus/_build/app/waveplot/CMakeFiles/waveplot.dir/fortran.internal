@@ -1,0 +1,6 @@
+# The fortran modules provided by this target.
+provides
+ waveplot_gridcache.mod
+ waveplot_initwaveplot.mod
+ waveplot_molorb.mod
+ waveplot_slater.mod

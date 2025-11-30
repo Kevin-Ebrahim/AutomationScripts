@@ -1,0 +1,23 @@
+# The fortran modules provided by this target.
+provides
+ libmpifx_module.mod
+ mpifx_abort_module.mod
+ mpifx_allgather_module.mod
+ mpifx_allgatherv_module.mod
+ mpifx_allreduce_module.mod
+ mpifx_barrier_module.mod
+ mpifx_bcast_module.mod
+ mpifx_comm_module.mod
+ mpifx_constants_module.mod
+ mpifx_finalize_module.mod
+ mpifx_gather_module.mod
+ mpifx_gatherv_module.mod
+ mpifx_get_processor_name_module.mod
+ mpifx_helper_module.mod
+ mpifx_init_module.mod
+ mpifx_recv_module.mod
+ mpifx_reduce_module.mod
+ mpifx_scatter_module.mod
+ mpifx_scatterv_module.mod
+ mpifx_send_module.mod
+ mpifx_win_module.mod

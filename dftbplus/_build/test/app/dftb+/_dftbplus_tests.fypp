@@ -1,0 +1,604 @@
+#! This file will be preprocessed using the same preprocessor options as used
+#! for the compilation and additionally setting MPI_PROCS equal to the make variable
+#! $(TEST_MPI_PROCS) and OMP_THREADS to $(TEST_OMP_THREADS).
+
+#:include 'common.fypp'
+#:set LONG_TEST = not defined('TRAVIS')
+
+#{if MPI_PROCS <= 1}#extpot/CH4_gross#{endif}#
+#{if MPI_PROCS <= 1}#extpot/CH4_net#{endif}#
+#{if MPI_PROCS <= 1}#extpot/CH4_gross2#{endif}#
+#{if MPI_PROCS <= 1}#extpot/CH4_net2#{endif}#
+#{if MPI_PROCS <= 1}#extpot/CH4_scc_gross#{endif}#
+#{if MPI_PROCS <= 1}#extpot/CH4_scc_net#{endif}#
+
+#{if OMP_THREADS <= 2 and not WITH_MPI}#deltadftb/C2H4#{endif}#
+#{if OMP_THREADS <= 2 and not WITH_MPI}#deltadftb/C2H4_noground#{endif}#
+#{if OMP_THREADS <= 2 and not WITH_MPI}#deltadftb/C2H4_unpurified#{endif}#
+#{if OMP_THREADS <= 4 and MPI_PROCS <= 2}#deltadftb/indigo#{endif}#
+#{if OMP_THREADS <= 2 and not WITH_MPI}#deltadftb/H2O#{endif}#
+
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/C4H6_rs#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/C4H6_rs_Singlet#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/benzene_Ehrenfest_restart#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/benzene_Ehrenfest_restartAscii#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/benzene_kick_bndpop#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI and WITH_TBLITE}#timeprop/benzene_kick_gfn1#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/benzene_laser#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI and WITH_TBLITE}#timeprop/benzene_laser_gfn2#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/benzene_sin2#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI}#timeprop/benzene_gaussian#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI and LONG_TEST}#timeprop/GNR_kpoint_kick#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI and LONG_TEST}#timeprop/GNR_kpoint_restart#{endif}#
+#{if OMP_THREADS <= 1 and not WITH_MPI}#timeprop/H2_singlet#{endif}#
+#{if OMP_THREADS <= 1 and not WITH_MPI}#timeprop/H2_triplet#{endif}#
+#{if OMP_THREADS <= 1 and not WITH_MPI}#timeprop/H2_exc_atoms#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI and LONG_TEST}#timeprop/C60_kick#{endif}#
+#{if OMP_THREADS <= 4 and not WITH_MPI and LONG_TEST}#timeprop/C60_triplet#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/NO_pSIC#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/NO_onsite#{endif}#
+#{if OMP_THREADS <= 1 and not WITH_MPI}#timeprop/benzene_kick_periodic#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/GNR_periodic_kick#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/CH3_dftbu_singlet#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/GNR_periodic_laser#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/benzene_ions_pulse#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI and LONG_TEST}#timeprop/GNR_periodic_ions#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI and LONG_TEST}#timeprop/graphite_dispersion_pulse#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/PDI_charged#{endif}#
+#{if OMP_THREADS == 1 and not WITH_MPI}#timeprop/benzene_circpol#{endif}#
+
+#{if OMP_THREADS <= 1 and not WITH_MPI}#timeprop/benzene_rs#{endif}#
+
+#{if MPI_PROCS <= 2}#helical/10-0Ctube#{endif}#
+#{if MPI_PROCS == 1}#helical/10-0CtubeC_10#{endif}#
+#{if MPI_PROCS == 1}#helical/10-0CtubeC_10_origin#{endif}#
+#{if MPI_PROCS == 1}#helical/10-0CtubeC_10_sampled#{endif}#
+#{if MPI_PROCS == 1}#helical/1000-0-C_1000#{endif}#
+#{if MPI_PROCS == 1}#helical/C6H6_stack#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 8 and MPI_PROCS % 2 == 0 and OMP_THREADS == 1}#helical/10-0Ctube_ELPA#{endif}#
+#{if WITH_ELSI and MPI_PROCS == 1 and OMP_THREADS == 1}#helical/C6H6_stack_ELPA#{endif}#
+#{if WITH_PEXSI and MPI_PROCS <= 8 and MPI_PROCS % 4 == 0 and OMP_THREADS == 1 and ELSI_VERSION > 2.5}#helical/10-0Ctube_PEXSI#{endif}#
+
+#{if WITH_MBD and MPI_PROCS <= 4}#dispersion/2C6H6_MBD#{endif}#
+#{if WITH_MBD and MPI_PROCS <= 4}#dispersion/CO2_bulk_TS#{endif}#
+#{if WITH_MBD and MPI_PROCS <= 4}#dispersion/2C6H6_TS#{endif}#
+#{if WITH_MBD and MPI_PROCS <= 4}#dispersion/CO2_bulk_MBD#{endif}#
+
+#{if MPI_PROCS <= 1}#elecconstraints/H2O_scc#{endif}#
+#{if MPI_PROCS <= 1}#elecconstraints/H2O_scc-individual#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#elecconstraints/H2O_gfn1#{endif}#
+#{if MPI_PROCS <= 1}#elecconstraints/H2O_non-converged#{endif}#
+#{if MPI_PROCS <= 1}#elecconstraints/Si8_spin#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#elecconstraints/H-chain_transport#{endif}#
+#{if MPI_PROCS <= 4}#elecconstraints/Fe4_noncolinear#{endif}#
+
+#{if WITH_CHIMES and MPI_PROCS <= 1}#chimes/CNOH#{endif}#
+
+#{if WITH_MAGMA}#non-scc/Si_384_GPU#{endif}#
+#{if WITH_MAGMA}#scc/SiC_512_GPU#{endif}#
+#{if WITH_MAGMA}#solvers/SiC64+V_GPU_MP#{endif}#
+#{if WITH_MAGMA}#solvers/SiC64+V_GPU_MP_k#{endif}#
+
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn1_h2#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn1_mindless01#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn1_succinic#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn1_halogen#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/ipea1_h2#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/ipea1_mindless02#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_h2#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_h2_restart#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_h2_Ascii#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_mindless05#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_benzene#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_benzene_resltag#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#xtb/gfn2_CH2#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#spin/gfn2_H2#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#spin/gfn1_Fe4#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#spin/ipea1_Fe4_noncolinear#{endif}#
+
+#{if MPI_PROCS <= 1}#input/caffeine_gen#{endif}#
+#{if MPI_PROCS <= 1}#input/caffeine_xyz#{endif}#
+#{if MPI_PROCS <= 1}#input/ammonia_lammps#{endif}#
+#{if MPI_PROCS <= 1}#input/ammonia_poscar#{endif}#
+#{if MPI_PROCS <= 1}#input/unsorted_contcar#{endif}#
+
+#{if MPI_PROCS <= 4}#hybrid/cluster/C18H12-force-hyb#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/C18H12-force-lc#{endif}#
+#{if MPI_PROCS <= 4}#hybrid/cluster/C18H12-force-cam#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/C18H12-nbscreening#{endif}#
+#{if MPI_PROCS <= 4}#hybrid/cluster/C18H12-matrix#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/CH3#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/CH3-default-compat#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/cluster/CH3-matrix#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/C60-nb#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/C60-nb-cutoff#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/Thymine-T1-force#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/cyclopropene_nb_restart#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/Thymine-spin-matrix-force-restart#{endif}#
+#{if not WITH_MPI and LONG_TEST}#hybrid/cluster/C240_tn#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/Thymine-T1_onsite#{endif}#
+#{if MPI_PROCS <= 2}#hybrid/cluster/Thymine-spin-matrix-force-mpi-grp1#{endif}#
+#{if MPI_PROCS == 2}#hybrid/cluster/Thymine-spin-matrix-force-mpi-grp2#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/C4H6-Casida-S1-Force#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/cluster/Benzene-Spinpol-matrix#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/Benzene-Casida-S5-Force#{endif}#
+#{if MPI_PROCS <= 4}#hybrid/cluster/C4H6-TD-LC-Triplet#{endif}#
+#{if MPI_PROCS <= 4}#hybrid/cluster/Benzene-TD-LC-Spinpol#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/Benzene-TD-LC-Spinpol-Force#{endif}#
+#{if MPI_PROCS <= 4}#hybrid/cluster/Benzene-TD-LC-Spinpol-Iter#{endif}#
+#{if not WITH_MPI}#hybrid/cluster/As#{endif}#
+
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-gamma-matrix-force-cam#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/Acene-gamma-matrix-restart#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/Acene-gamma-matrix-restart-ascii#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/Acene-gamma-neigh-force-cam#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/Acene-gamma-neigh-force-hyb#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/Acene-gamma-neigh-force-lc#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-matrix-lc#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-matrix-restart-I#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-matrix-restart-II#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-matrix-restart-ascii#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Acene-kpts-matrix-restart-np2#{endif}#
+#{if MPI_PROCS == 3}#hybrid/periodic/Acene-kpts-matrix-restart-np3#{endif}#
+#{if MPI_PROCS == 4}#hybrid/periodic/Acene-kpts-matrix-restart-np4#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-matrix-band#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Acene-kpts-matrix-band-np2#{endif}#
+#{if MPI_PROCS == 3}#hybrid/periodic/Acene-kpts-matrix-band-np3#{endif}#
+#{if MPI_PROCS == 4}#hybrid/periodic/Acene-kpts-matrix-band-np4#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-matrix-force-lc#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Acene-kpts-matrix-force-lc-np2#{endif}#
+#{if MPI_PROCS == 3}#hybrid/periodic/Acene-kpts-matrix-force-lc-np3#{endif}#
+#{if MPI_PROCS == 4}#hybrid/periodic/Acene-kpts-matrix-force-lc-np4#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-neigh-band#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Acene-kpts-neigh-band-mpi#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-neigh-force-lc#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-neigh-restart#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Acene-kpts-neigh-restart-ascii#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Acene-kpts-neigh-restart-mpi#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Benzene-box-spin-matrix-ct-kpts#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Benzene-box-spin-matrix-ct-kpts-np2#{endif}#
+#{if MPI_PROCS == 3}#hybrid/periodic/Benzene-box-spin-matrix-ct-kpts-np3#{endif}#
+#{if MPI_PROCS == 4}#hybrid/periodic/Benzene-box-spin-matrix-ct-kpts-np4#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/Benzene-box-spin-neigh-ct-kpts#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/Benzene-box-spin-neigh-ct-kpts-mpi#{endif}#
+#{if MPI_PROCS <= 9 and MPI_PROCS != 5 and MPI_PROCS != 7}#hybrid/periodic/Benzene-gamma-matrix-spin-force-grp1#{endif}#
+#{if MPI_PROCS == 2 or MPI_PROCS == 4}#hybrid/periodic/Benzene-gamma-matrix-spin-force-grp2#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/Benzene-gamma-neigh-spin-force#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/CN-chain_transl-inv-matrix-ct#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/CN-chain_transl-inv-neigh-ct#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-gamma-matrix#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/GaAs-gamma-neigh#{endif}#
+#{if not WITH_MPI}#hybrid/periodic/GaAs-gamma-restart#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-kpts-matrix-ct#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-kpts-matrix-ct-anderson#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-kpts-matrix-ct-diis#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/GaAs-kpts-matrix-ct-np2#{endif}#
+#{if MPI_PROCS == 3}#hybrid/periodic/GaAs-kpts-matrix-ct-np3#{endif}#
+#{if MPI_PROCS == 4}#hybrid/periodic/GaAs-kpts-matrix-ct-np4#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-kpts-matrix-ct-simple#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-kpts-neigh-ct#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/GaAs-kpts-neigh-ct-mpi#{endif}#
+#{if MPI_PROCS <= 1}#hybrid/periodic/GaAs-kpts-neigh-mic#{endif}#
+#{if MPI_PROCS == 2}#hybrid/periodic/GaAs-kpts-neigh-mic-mpi#{endif}#
+
+#{if not WITH_MPI}#reks/C2H4_3SSR_rangesep#{endif}#
+#{if not WITH_MPI}#reks/C2H4_direct#{endif}#
+#{if not WITH_MPI}#reks/C2H4_nosave#{endif}#
+#{if not WITH_MPI}#reks/C2H4_read_mo#{endif}#
+#{if not WITH_MPI}#reks/C6H8_extchrg_periodic_nosave#{endif}#
+#{if not WITH_MPI}#reks/C6H8_rangesep_extchrg_nac#{endif}#
+#{if not WITH_MPI}#reks/C6H8_rangesep_extchrg_nosave#{endif}#
+#{if not WITH_MPI}#reks/CNH4+_dftd4#{endif}#
+#{if not WITH_MPI}#reks/CNH4+_dftd4_sc#{endif}#
+#{if not WITH_MPI}#reks/CNH4+_dftd4_sc_rangesep#{endif}#
+#{if not WITH_MPI and LONG_TEST}#reks/HBI+H2O_periodic_stress#{endif}#
+#{if not WITH_MPI and LONG_TEST}#reks/HBI+H2O_periodic_stress_disp#{endif}#
+#{if not WITH_MPI}#reks/PSB3_2SSR#{endif}#
+#{if not WITH_MPI}#reks/PSB3_2SSR_extchrg_periodic#{endif}#
+#{if not WITH_MPI}#reks/PSB3_2SSR_rangesep#{endif}#
+#{if not WITH_MPI}#reks/PSB3_2SSR_rangesep_extchrg#{endif}#
+#{if not WITH_MPI}#reks/PSB3_2SSR_rangesep_extchrg_blur#{endif}#
+#{if not WITH_MPI}#reks/PSB3_2SSR_rangesep_tuning#{endif}#
+#{if not WITH_MPI}#reks/PSB3_SA#{endif}#
+#{if not WITH_MPI}#reks/Thymine_3SSR#{endif}#
+#{if not WITH_MPI}#reks/Thymine_single#{endif}#
+#{if not WITH_MPI}#reks/Thymine_T1#{endif}#
+#{if not WITH_MPI}#reks/Thymine_T1_rangesep#{endif}#
+
+#{if OMP_THREADS <= 2 and MPI_PROCS <= 2}#mdftb/2H2O#{endif}#
+#{if OMP_THREADS <= 2 and MPI_PROCS <= 2}#mdftb/2H2O-extfield#{endif}#
+#{if MPI_PROCS <= 4}#mdftb/32H2O#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/Glycine#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/Glycine_mDFTBoff1#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/Glycine_mDFTBoff2#{endif}#
+#{if OMP_THREADS <= 4 and MPI_PROCS <= 2}#mdftb/Glycine_mDFTBoff3#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/Glycine_Ordering#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/Glycine_RotTran1#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/Glycine_RotTran2#{endif}#
+#{if OMP_THREADS <= 4 and MPI_PROCS <= 2}#mdftb/Glycine_RotTran3#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/OH-H2O#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/OH-H2O_RotTran1#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/OH-H2O_RotTran2#{endif}#
+#{if OMP_THREADS <= 4 and MPI_PROCS <= 2}#mdftb/OH-H2O_RotTran3#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/NH4+H2O#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/NH4+H2O_RotTran1#{endif}#
+#{if MPI_PROCS <= 2}#mdftb/NH4+H2O_RotTran2#{endif}#
+#{if OMP_THREADS <= 4 and MPI_PROCS <= 2}#mdftb/NH4+H2O_RotTran3#{endif}#
+
+#{if WITH_ELSI and MPI_PROCS == 8 and OMP_THREADS == 1}#solvers/GaAs_2_ELPA2#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si32C32_ELPA1#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si32C32_ELPA2#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and MPI_PROCS % 2 == 0 and OMP_THREADS == 1}#solvers/Fe4_ELPA_2group#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si384_ELPA1#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si384_ELPA2#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 16 and MPI_PROCS % 4 == 0 and OMP_THREADS == 1}#solvers/SiC64+V_ELPA2#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 16 and MPI_PROCS % 4 == 0 and OMP_THREADS == 1 and WITH_GPU}#solvers/Si256C256_ELPA_GPU#{endif}#
+
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/ice_OMM#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/ice_NTPoly#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si32C32_OMM#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si32C32_OMM_sparse#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si384_OMM#{endif}#
+#{if WITH_ELSI and MPI_PROCS % 4 == 0 and MPI_PROCS <= 20 and OMP_THREADS == 1}#solvers/Si32C32_OMM_kpoints#{endif}#
+#{if WITH_ELSI and MPI_PROCS % 8 == 0 and MPI_PROCS <= 40 and OMP_THREADS == 1}#solvers/Si32C32_OMM_ks#{endif}#
+#! Disabling as currently crashing when used with Conda ELSI (2.8.2)
+#! solvers/Si32C32_OMM_k_sparse           #? WITH_ELSI and MPI_PROCS % 4 == 0 and MPI_PROCS <= 20 and OMP_THREADS == 1
+#{if WITH_ELSI and MPI_PROCS % 8 == 0 and MPI_PROCS <= 40 and OMP_THREADS == 1}#solvers/Si32C32_OMM_ks_sparse#{endif}#
+#{if WITH_ELSI and MPI_PROCS % 8 == 0 and MPI_PROCS <= 16 and OMP_THREADS == 1}#solvers/Si8_LSdual#{endif}#
+#! Disabling as currently crashing when used with Conda ELSI (2.8.2)
+#! solvers/Si32C32_LS_OMM                 #? WITH_ELSI and MPI_PROCS <= 20 and OMP_THREADS == 1
+#{if WITH_ELSI and MPI_PROCS % 8 == 0 and MPI_PROCS <= 32 and OMP_THREADS == 1}#solvers/Si32C32_LS_OMM_kpt#{endif}#
+
+#{if WITH_PEXSI and MPI_PROCS % 2 == 0 and MPI_PROCS <= 40 and OMP_THREADS == 1 and ELSI_VERSION > 2.5}#solvers/SiC64+V_PEXSI#{endif}#
+#! Disabling as test is rather unstable on optimization
+#! solvers/SiC64+V_spin_PEXSI             #? WITH_PEXSI and MPI_PROCS % 4 == 0 and MPI_PROCS <= 80 and OMP_THREADS == 1 and ELSI_VERSION > 2.5
+#{if WITH_PEXSI and MPI_PROCS % 2 == 0 and MPI_PROCS <= 20 and OMP_THREADS == 1 and ELSI_VERSION > 2.5}#solvers/10-10Ctube_PEXSI_sparse#{endif}#
+#{if WITH_PEXSI and MPI_PROCS % 4 == 0 and MPI_PROCS <= 40 and OMP_THREADS == 1 and ELSI_VERSION > 2.5}#solvers/SiC64+V_spinkpts_PEXSI#{endif}#
+#{if WITH_PEXSI and MPI_PROCS % 4 == 0 and MPI_PROCS <= 80 and OMP_THREADS == 1 and ELSI_VERSION > 2.5}#solvers/SiC64+V_PEXSI_kpts#{endif}#
+#{if WITH_PEXSI and MPI_PROCS % 8 == 0 and MPI_PROCS <= 40 and OMP_THREADS == 1 and ELSI_VERSION > 2.5}#solvers/SiC64+V_spinkpts_PEXSI_sparse#{endif}#
+
+#{if WITH_ELSI and MPI_PROCS % 4 == 0 and MPI_PROCS <= 20 and OMP_THREADS == 1}#solvers/Si32C32_k_elpaSparse#{endif}#
+#{if WITH_ELSI and MPI_PROCS <= 4 and OMP_THREADS == 1}#solvers/Si32C32_elpaSparse#{endif}#
+
+
+#{if MPI_PROCS <= 1}#derivatives/Si_2_Delta#{endif}#
+
+#{if MPI_PROCS <= 1}#derivatives/CH3nonsccPol#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/CH3sccPol#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/CH3spin3rdOnsPol#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/CH3_U_noncol#{endif}#
+#{if MPI_PROCS <= 2}#derivatives/Au2_LSmetalPol#{endif}#
+#{if not WITH_MPI}#derivatives/C18H12_rangesepPol#{endif}#
+#{if MPI_PROCS <= 4}#derivatives/C60#{endif}#
+#{if not WITH_MPI or (MPI_PROCS <= 8 and MPI_PROCS % 2 == 0) and LONG_TEST}#derivatives/C60+#{endif}#
+
+#{if MPI_PROCS <= 1}#derivatives/CH4_onsite#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/CH4_kpt_ons#{endif}#
+#{if MPI_PROCS <= 2}#derivatives/As4S4_LS_ons#{endif}#
+#{if MPI_PROCS <= 4}#derivatives/10-0Ctube_onsite#{endif}#
+#{if MPI_PROCS == 1}#derivatives/C6H6_onsite#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/C6H6_partial#{endif}#
+#{if MPI_PROCS == 1}#derivatives/CH4_RPA#{endif}#
+
+#{if MPI_PROCS <= 2}#derivatives/Au2_Polfreq#{endif}#
+#{if MPI_PROCS <= 4}#derivatives/C60_Polfreq#{endif}#
+
+#{if not WITH_MPI or MPI_PROCS == 2}#derivatives/CH4_freq#{endif}#
+#{if not WITH_MPI or MPI_PROCS == 4}#derivatives/CH4_kpt_freq#{endif}#
+#{if MPI_PROCS <= 2}#derivatives/Au2_LSmetalPolfreq#{endif}#
+
+#{if not WITH_MPI}#derivatives/C2H4_dx#{endif}#
+#{if not WITH_MPI}#derivatives/C2H4_scc_dx#{endif}#
+
+#{if MPI_PROCS <= 1}#legacy/Si2_oldSKinterp#{endif}#
+#{if MPI_PROCS <= 1}#legacy/Si2_polyRep#{endif}#
+#{if MPI_PROCS <= 1}#legacy/file_access#{endif}#
+#{if MPI_PROCS <= 1}#non-scc/Si_2#{endif}#
+#{if MPI_PROCS <= 1}#non-scc/Si_2_origin#{endif}#
+#{if MPI_PROCS <= 1}#non-scc/Si_2_originF#{endif}#
+#{if MPI_PROCS <= 1}#non-scc/Si_2_independentk#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O2_3rdfull-damp#{endif}#
+#{if MPI_PROCS <= 1}#scc/H3#{endif}#
+#{if MPI_PROCS <= 1}#scc/H3_skipcheck#{endif}#
+#{if MPI_PROCS <= 1}#spin/H2#{endif}#
+
+#{if MPI_PROCS <= 1}#scc/CH4_nonconverged#{endif}#
+
+#! MPI implementation not available
+#{if not WITH_MPI}#analysis/C2H4_localise#{endif}#
+#{if not WITH_MPI}#analysis/graphene_localise#{endif}#
+
+#{if MPI_PROCS <= 1}#onsite/H2O#{endif}#
+#{if MPI_PROCS <= 1}#dftb+u/CH3#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/2H2O#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/2H2O_uff#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#dispersion/2H2O_dftd3_zero#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#dispersion/2H2O_dftd3_bj#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#dispersion/2H2O_dftd3_mzero#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#dispersion/specieslist_dftd3_bj#{endif}#
+#{if MPI_PROCS <= 2}#dispersion/GaAs_sdftd3#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/2H2O_sdftd3#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/2H2O_dftd4#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/specieslist_dftd4#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/charged_dftd4#{endif}#
+#{if MPI_PROCS <= 2}#dispersion/diamond_dftd4#{endif}#
+#{if MPI_PROCS <= 2}#dispersion/GaAs_dftd4#{endif}#
+#{if MPI_PROCS <= 1}#dispersion/2H2O_dftd4_sc#{endif}#
+#{if MPI_PROCS <= 2}#dispersion/diamond_dftd4_sc#{endif}#
+#{if MPI_PROCS <= 2}#dispersion/GaAs_dftd4_sc#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O-nonscc#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_sd#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_sd_old#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#h-bonds/D3H5_water_dimer#{endif}#
+#{if MPI_PROCS <= 1}#non-scc/CH4#{endif}#
+#{if MPI_PROCS <= 2}#non-scc/decapentaene#{endif}#
+#{if MPI_PROCS <= 1}#scc/2H2O-3rdorder#{endif}#
+#{if MPI_PROCS <= 1}#scc/2H2O-3rdorder_read#{endif}#
+#{if MPI_PROCS <= 1}#scc/C2H6_3rdfull#{endif}#
+#{if MPI_PROCS <= 1}#scc/C2H6_3rdfull-damp#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O2_3rdfull#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O2-3rdfull-ldep#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O-extchrg#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O-extchrg-blur#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O-extchrg-direct#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O-extchrg-periodic#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O-extfield#{endif}#
+#{if MPI_PROCS <= 1 and WITH_TBLITE}#scc/H2O-extfield-gfn1#{endif}#
+#{if MPI_PROCS <= 1}#spin/H2O-periodic#{endif}#
+#{if MPI_PROCS <= 1}#spin/OH_commonFermi#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/Si_2_Richardson#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O-constr#{endif}#
+#{if MPI_PROCS <= 1}#legacy/SiC_polyRep#{endif}#
+#{if MPI_PROCS <= 4}#md/SiH-surface_restart#{endif}#
+#{if MPI_PROCS <= 1}#scc/C4H8_3rdfull#{endif}#
+#{if MPI_PROCS <= 1}#scc/C4H8_3rdfull-damp#{endif}#
+#{if MPI_PROCS <= 1}#scc/CH2_n_3rdfull#{endif}#
+#{if MPI_PROCS <= 1}#scc/CH2_n_3rdfull_damp#{endif}#
+#{if MPI_PROCS <= 1}#scc/GaAs_2_restart#{endif}#
+#{if MPI_PROCS <= 1}#scc/SiH_custom-ref#{endif}#
+#{if MPI_PROCS <= 1}#scc/HH_custom-ref#{endif}#
+#{if MPI_PROCS == 2 or not WITH_MPI}#spin/Fe4#{endif}#
+#{if MPI_PROCS <= 2}#spin/Fe4_commonFermi#{endif}#
+
+#{if MPI_PROCS <= 2}#solvation/sasa_i10e#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_ionpair#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_reference#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_mol1bar#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_cm5#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_specieslist#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_p16#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gb_inf#{endif}#
+#{if MPI_PROCS <= 2}#solvation/gbsa_e35#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gbsa_caffeine#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gbsa_p16#{endif}#
+#{if MPI_PROCS <= 1}#solvation/gbsa_param1#{endif}#
+#{if not WITH_MPI}#solvation/gbsa_param2#{endif}#
+#{if MPI_PROCS <= 2}#solvation/gbsa_param3#{endif}#
+#{if MPI_PROCS <= 1}#solvation/alpb_cation#{endif}#
+#{if MPI_PROCS <= 1}#solvation/alpb_anion#{endif}#
+#{if MPI_PROCS <= 1}#solvation/alpb_p16#{endif}#
+#{if MPI_PROCS <= 2}#solvation/cosmo_g1#{endif}#
+#{if MPI_PROCS <= 2}#solvation/cosmo_b33#{endif}#
+#{if MPI_PROCS <= 2}#solvation/cosmo_i8e#{endif}#
+#{if MPI_PROCS <= 2}#solvation/cosmo_444#{endif}#
+#{if MPI_PROCS <= 1}#solvation/cosmo_inf#{endif}#
+#{if MPI_PROCS <= 1 and WITH_TBLITE}#solvation/cosmo_inf_gfn1#{endif}#
+#{if MPI_PROCS <= 1}#solvation/cosmo_quinoline#{endif}#
+#{if MPI_PROCS <= 2}#solvation/cosmo_nitralin#{endif}#
+#{if MPI_PROCS <= 1}#solvation/H2O_gb_rescale#{endif}#
+
+#{if MPI_PROCS <= 1}#derivatives/C6H6_Raman#{endif}#
+#{if WITH_TBLITE and MPI_PROCS <= 1}#derivatives/gfn2_c6h6_dipole#{endif}#
+
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/2CH3-Temp#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/2CH3-Triplet-Temp#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/NO#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/NO_onsite#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/N2_onsite#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/propadiene_OscWindow#{endif}#
+
+#{if MPI_PROCS <= 1}#analysis/H2O_ESP#{endif}#
+#{if MPI_PROCS <= 2}#analysis/H2O_mdESP#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_lbfgs#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_lbfgsStep#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_lbfgsLineMin#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_rf#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/H2O_fire#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8_NHC_restart#{endif}#
+#{if MPI_PROCS <= 1}#non-scc/GaAs_2#{endif}#
+#{if MPI_PROCS <= 1}#scc/GaAs_2#{endif}#
+#{if MPI_PROCS <= 1}#scc/GaAs_2_customU#{endif}#
+#{if MPI_PROCS <= 2}#spinorbit/Fe2_dual#{endif}#
+#{if MPI_PROCS <= 2}#spinorbit/Fe2_dual_field#{endif}#
+#{if MPI_PROCS <= 2}#spinorbit/Fe2_dual_Fermi#{endif}#
+#{if MPI_PROCS <= 1}#spinorbit/Si_2#{endif}#
+#{if MPI_PROCS <= 4}#dispersion/DNA_uff#{endif}#
+#{if MPI_PROCS <= 4}#onsite/Au13#{endif}#
+#{if MPI_PROCS <= 4}#onsite/Au13pSIC#{endif}#
+
+#{if WITH_ARPACK and not WITH_MPI}#timedep/C4H6-S1-Force#{endif}#
+#{if WITH_ARPACK and not WITH_MPI}#timedep/C4H6-Singlet_wfn#{endif}#
+#{if WITH_ARPACK and not WITH_MPI}#timedep/C4H6-T1-Force#{endif}#
+#{if WITH_ARPACK and not WITH_MPI}#timedep/C4H6-S1-Force_uncache#{endif}#
+#{if WITH_ARPACK and not WITH_MPI}#timedep/NH-Force-spinpol#{endif}#
+
+#{if not WITH_MPI}#timedep/C4H6-S1-Force_uncache-Stratmann#{endif}#
+#{if not WITH_MPI}#timedep/NH-Force-spinpol-Stratmann#{endif}#
+
+#{if WITH_ARPACK and MPI_PROCS <= 4}#timedep/cyclopentadienyl#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/C6H6-Sym#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/C6H6-Sym_Arnoldi#{endif}#
+#{if WITH_ARPACK and not WITH_MPI}#timedep/OCH2-S1-Opt#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 4}#timedep/OCH2-md#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/C66O10N4H44_Ewindow#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/C66O10N4H44_OscWindow#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 8}#timedep/C60_EandOsc#{endif}#
+#{if WITH_ARPACK and not WITH_MPI}#timedep/Furan-NACV#{endif}#
+#{if not WITH_MPI}#timedep/Furan-NACV-LC#{endif}#
+
+#{if WITH_ARPACK and MPI_PROCS <= 4}#timedep/C4H6-Singlet#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 4}#timedep/C4H6-Triplet#{endif}#
+#{if MPI_PROCS <= 4}#timedep/C4H6-TransCharges#{endif}#
+#{if MPI_PROCS <= 4}#timedep/2CH3-Temp-Stratmann#{endif}#
+#{if MPI_PROCS <= 4}#timedep/C4H6-Singlet-Stratmann#{endif}#
+#{if MPI_PROCS <= 4}#timedep/C4H6-Triplet-Stratmann#{endif}#
+#{if MPI_PROCS <= 4}#timedep/NO-Stratmann#{endif}#
+#{if MPI_PROCS <= 4}#timedep/propadiene_OscWindow-Stratmann#{endif}#
+#{if WITH_ARPACK and MPI_PROCS <= 4}#timedep/C60_OscWindow#{endif}#
+
+#{if MPI_PROCS <= 2}#dftb+u/Fe4#{endif}#
+#{if MPI_PROCS <= 2}#dftb+u/Fe4_read#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Cchain_lattice_lbfgs#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Cchain_lattice#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Cchain_lattice_rf#{endif}#
+#{if MPI_PROCS <= 1}#scc/H2O+CH3COOH-3rdorder#{endif}#
+#{if MPI_PROCS <= 2}#spinorbit/Fe2#{endif}#
+#{if MPI_PROCS <= 2}#analysis/Fe2_antiferromagnetic#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-0Ctube_Efield#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-10Ctube#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-10Ctube_MP#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-10Ctube_MP0#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-10Ctube_MP2#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-10Ctube_Gauss#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/Ctube_Fermi#{endif}#
+#{if MPI_PROCS <= 4}#analysis/10-0Ctube_ESP#{endif}#
+#{if MPI_PROCS <= 1}#md/H2O-extfield#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/10-0Ctube#{endif}#
+#{if MPI_PROCS <= 4}#spin/Fe4_noncolinear#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/HBDI-neutral#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/HBDI-cationic#{endif}#
+#{if MPI_PROCS <= 4}#scc/C60#{endif}#
+#{if MPI_PROCS <= 4}#analysis/C60_ESP#{endif}#
+#{if MPI_PROCS <= 1}#spin/H2O#{endif}#
+
+#{if MPI_PROCS <= 4}#dangerous/C_SkCutoff_soft_default#{endif}#
+#{if MPI_PROCS <= 4}#dangerous/C_SkCutoff_hard_default#{endif}#
+#{if MPI_PROCS <= 4}#dangerous/C_SkCutoff_soft_old#{endif}#
+#{if MPI_PROCS <= 4}#dangerous/C_SkCutoff_hard_old#{endif}#
+
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#halogen/3492#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#halogen/3499#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#halogen/3500#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#halogen/3501#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#halogen/3502#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 1}#halogen/3518#{endif}#
+
+#{if MPI_PROCS <= 2}#h-bonds/H5_defaults#{endif}#
+#{if MPI_PROCS <= 2}#h-bonds/H5_ONS_forces#{endif}#
+#{if MPI_PROCS <= 2}#h-bonds/H5_ONS_forces_eq#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 4}#h-bonds/D3H5_ice#{endif}#
+
+#{if MPI_PROCS <= 1}#md/Si_8_restart#{endif}#
+#{if MPI_PROCS <= 1}#spin/GaAs_2#{endif}#
+#{if MPI_PROCS <= 1}#spin/GaAs-spin-ext#{endif}#
+#{if MPI_PROCS <= 6}#spinorbit/As4S4#{endif}#
+
+#{if MPI_PROCS <= 4}#dispersion/DNA-damped#{endif}#
+#{if MPI_PROCS <= 4}#md/ice_Ic#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/C6H6_scc#{endif}#
+#{if MPI_PROCS <= 1}#derivatives/GaAs_2#{endif}#
+#{if MPI_PROCS <= 1}#dftb+u/GaAs_2#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/diamond_presure#{endif}#
+#{if MPI_PROCS <= 4}#scc/C60_Fermi#{endif}#
+#{if MPI_PROCS <= 4}#scc/10-0Ctube-extfield#{endif}#
+#{if MPI_PROCS <= 4}#scc/SiC_64#{endif}#
+#{if MPI_PROCS <= 2}#scc/SiC_32-extchrg-blur#{endif}#
+#{if MPI_PROCS <= 1}#md/H3#{endif}#
+#{if WITH_PLUMED and MPI_PROCS <= 1}#md/H3-plumed#{endif}#
+
+
+#{if WITH_SDFTD3 and MPI_PROCS <= 4}#dispersion/DNA_dftd3_zero#{endif}#
+#{if WITH_SDFTD3 and MPI_PROCS <= 4}#dispersion/DNA_dftd3_mzero#{endif}#
+
+#{if WITH_SOCKETS and MPI_PROCS <= 1}#sockets/diamond#{endif}#
+#{if WITH_SOCKETS and MPI_PROCS <= 1}#sockets/diamond_exit#{endif}#
+#{if WITH_SOCKETS and MPI_PROCS <= 4}#sockets/H2O#{endif}#
+#{if WITH_SOCKETS and MPI_PROCS <= 1}#sockets/H2O_cluster#{endif}#
+
+#{if MPI_PROCS <= 1}#spinorbit/GaAs_2#{endif}#
+
+#{if MPI_PROCS <= 1}#geoopt/Si_2_latconst#{endif}#
+#{if MPI_PROCS <= 4}#md/SiH-surface#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Si_2_lattice_lbfgs#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Si_2_lattice#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Si_2_lattice_rf#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8_NHC#{endif}#
+
+
+#{if MPI_PROCS <= 2}#spin/Fe4_Fermi#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/Si41C23N35#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/diamond_isotropic#{endif}#
+#{if MPI_PROCS <= 2}#spinorbit/EuN#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Si_6#{endif}#
+#{if MPI_PROCS <= 1}#geoopt/Si_6_rf#{endif}#
+#{if MPI_PROCS <= 4}#md/ptcda-xlbomdfast#{endif}#
+#{if MPI_PROCS <= 2}#spinorbit/EuN_customU#{endif}#
+#{if MPI_PROCS <= 4}#dispersion/DNA#{endif}#
+#{if MPI_PROCS <= 1}#spinorbit/Si2_dual#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8#{endif}#
+#{if WITH_PLUMED and MPI_PROCS <= 1}#md/Si_8-plumed#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8-thermostat2#{endif}#
+#{if MPI_PROCS <= 2}#geoopt/GaAs_8_latconst_lbfgs#{endif}#
+#{if MPI_PROCS <= 2}#geoopt/GaAs_8_latconst#{endif}#
+#{if MPI_PROCS <= 2}#analysis/Ga4As4_ESP#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8-thermostat#{endif}#
+#{if MPI_PROCS <= 4}#md/ptcda-xlbomdfast-ldep#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8-tempprofile#{endif}#
+#{if MPI_PROCS <= 1}#md/Si_8-tempprofile0#{endif}#
+#{if WITH_PLUMED and MPI_PROCS <= 4}#md/Vsi+O-plumed#{endif}#
+
+#{if WITH_SDFTD3 and MPI_PROCS <= 4}#dispersion/DNA_dftd3_bj#{endif}#
+
+#{if MPI_PROCS <= 4}#geoopt/Vsi+O-nonscc#{endif}#
+#{if MPI_PROCS <= 4}#non-scc/Si_384#{endif}#
+#{if MPI_PROCS <= 4}#md/DNA#{endif}#
+#{if MPI_PROCS <= 4}#md/DNA_Berendsen2#{endif}#
+#{if MPI_PROCS <= 4}#md/ptcda-xlbomd#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#md/SiC64-xlbomdfast-T0#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#md/SiC64-xlbomdfast#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#md/SiC64-xlbomdfast-T0_kpts#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#md/SiC64-xlbomdfast_kpts#{endif}#
+
+#{if MPI_PROCS <= 4 and LONG_TEST}#non-scc/Si_216#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#md/ptcda-xlbomd-ldep#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#geoopt/Vsi+O_lbfgs#{endif}#
+#{if MPI_PROCS <= 4 and LONG_TEST}#geoopt/Vsi+O#{endif}#
+#{if (MPI_PROCS <= 8 and MPI_PROCS % 4 == 0) or not WITH_MPI}#scc/SiC64+V_dynforce_groups#{endif}#
+#{if (MPI_PROCS <= 4 and MPI_PROCS % 2 == 0) or not WITH_MPI}#scc/SiC64+V_dynforce#{endif}#
+
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/CH4#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/GaAs#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/CH4-poisson#{endif}#
+#{if WITH_POISSON and MPI_PROCS <= 4}#poisson/CH4-poisson#{endif}#
+#{if WITH_POISSON and not WITH_MPI}#poisson/CH4-selShell#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/CNT#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4 and LONG_TEST}#transport/CNT_GF#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 2}#transport/C-chain_allSteps#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 2 and LONG_TEST}#transport/C-chain+U#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4 and LONG_TEST}#transport/C-chain+Uspin#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 2 and LONG_TEST}#transport/SiH-chain_allSteps#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 2 and LONG_TEST}#transport/SiH-chain_bin#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/H-chain#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/H-chain_Ef#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 8}#transport/H-chain-spin#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 8 and LONG_TEST}#transport/H-chain-fullspin#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/H-sheet#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 8 and MPI_PROCS % 2 == 0}#transport/H-sheet_grp2#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 16 and MPI_PROCS % 4 == 0}#transport/H-sheet_grp4#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 32 and MPI_PROCS % 8 == 0}#transport/H-sheet_grp8#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/H-3conts#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4 and LONG_TEST}#transport/SiH-chain#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/SiH-chain-cont#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/SiH-cont-poiss#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4 and LONG_TEST}#transport/graphene_x#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4 and LONG_TEST}#transport/graphene3T#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/Au-chain#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 2 and LONG_TEST}#transport/SiH-chain_semiInf#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4 and LONG_TEST}#transport/local-curr#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/polyacetylene_semiInf#{endif}#
+#{if WITH_TRANSPORT and MPI_PROCS <= 4}#transport/H-sheet_end#{endif}#
+
+#{if not WITH_MPI}#pp-RPA/ethene#{endif}#
+#{if not WITH_MPI}#pp-RPA/benzene_TammDancoff#{endif}#
+#{if not WITH_MPI}#pp-RPA/furan_OrbConst#{endif}#

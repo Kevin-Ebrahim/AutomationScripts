@@ -1,0 +1,2 @@
+/usr/bin/ar qc libscalapackfx.a CMakeFiles/scalapackfx.dir/blacs.f90.o CMakeFiles/scalapackfx.dir/blacsfx.f90.o CMakeFiles/scalapackfx.dir/blacsgrid.f90.o CMakeFiles/scalapackfx.dir/libscalapackfx.f90.o CMakeFiles/scalapackfx.dir/linecomm.f90.o CMakeFiles/scalapackfx.dir/pblas.f90.o CMakeFiles/scalapackfx.dir/pblasfx.f90.o CMakeFiles/scalapackfx.dir/scalapack.f90.o CMakeFiles/scalapackfx.dir/scalapackfx.f90.o CMakeFiles/scalapackfx.dir/scalapackfx_common.f90.o CMakeFiles/scalapackfx.dir/scalapackfx_tools.f90.o
+/usr/bin/ranlib libscalapackfx.a

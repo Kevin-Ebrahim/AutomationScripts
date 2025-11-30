@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmpifxtesthelp.a CMakeFiles/mpifxtesthelp.dir/testhelper.f90.o
+/usr/bin/ranlib libmpifxtesthelp.a

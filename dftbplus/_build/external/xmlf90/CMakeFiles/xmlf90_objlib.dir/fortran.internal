@@ -1,0 +1,34 @@
+# The fortran modules provided by this target.
+provides
+ xmlf90_buffer.mod
+ xmlf90_charset.mod
+ xmlf90_converters.mod
+ xmlf90_debug.mod
+ xmlf90_dictionary.mod
+ xmlf90_dom_attribute.mod
+ xmlf90_dom_debug.mod
+ xmlf90_dom_document.mod
+ xmlf90_dom_element.mod
+ xmlf90_dom_error.mod
+ xmlf90_dom_namednodemap.mod
+ xmlf90_dom_node.mod
+ xmlf90_dom_nodelist.mod
+ xmlf90_dom_parse.mod
+ xmlf90_dom_types.mod
+ xmlf90_dom_utils.mod
+ xmlf90_elstack.mod
+ xmlf90_entities.mod
+ xmlf90_flib_dom.mod
+ xmlf90_flib_sax.mod
+ xmlf90_flib_wxml.mod
+ xmlf90_fsm.mod
+ xmlf90_io.mod
+ xmlf90_reader.mod
+ xmlf90_strings.mod
+ xmlf90_wxml_buffer.mod
+ xmlf90_wxml_core.mod
+ xmlf90_wxml_dictionary.mod
+ xmlf90_wxml_elstack.mod
+ xmlf90_wxml_text.mod
+ xmlf90_xml_error.mod
+ xmlf90_xml_parser.mod

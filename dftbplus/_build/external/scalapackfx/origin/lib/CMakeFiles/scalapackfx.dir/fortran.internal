@@ -1,0 +1,13 @@
+# The fortran modules provided by this target.
+provides
+ blacs_module.mod
+ blacsfx_module.mod
+ blacsgrid_module.mod
+ libscalapackfx_module.mod
+ linecomm_module.mod
+ pblas_module.mod
+ pblasfx_module.mod
+ scalapack_module.mod
+ scalapackfx_common_module.mod
+ scalapackfx_module.mod
+ scalapackfx_tools_module.mod

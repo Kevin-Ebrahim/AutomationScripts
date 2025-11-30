@@ -1,0 +1,4 @@
+# The fortran modules provided by this target.
+provides
+ ddcosmo_core.mod
+ ddcosmo_solver.mod

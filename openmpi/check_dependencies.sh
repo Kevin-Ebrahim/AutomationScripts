@@ -4,9 +4,6 @@ set -euo pipefail
 
 # Commands we expect in PATH (no duplicates of package names below)
 REQUIRED_CMDS=(
-    gcc
-    g++
-    gfortran
     make
     tar
     pkg-config
@@ -19,7 +16,6 @@ REQUIRED_CMDS=(
 # Debian/Ubuntu packages typically needed to build Open MPI (w/ Slurm + external hwloc)
 REQUIRED_PKGS=(
     build-essential
-    gfortran
 
     wget
     curl
