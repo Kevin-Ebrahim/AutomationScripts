@@ -1,0 +1,24 @@
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+libc.so.6          00007B1959245330  Unknown               Unknown  Unknown
+libmkl_avx512.so.  00007B194E7C2D22  mkl_blas_avx512_d     Unknown  Unknown
+libmkl_avx512.so.  00007B194E63BB5F  mkl_blas_avx512_x     Unknown  Unknown
+libmkl_intel_thre  00007B19692B834C  mkl_blas_dgemv        Unknown  Unknown
+libmkl_intel_lp64  00007B196BB528E8  mkl_blas__dgemv       Unknown  Unknown
+libmkl_scalapack_  00007B19579760DA  pdgemv_               Unknown  Unknown
+libmkl_scalapack_  00007B19576368EE  pdlatrd_              Unknown  Unknown
+libmkl_scalapack_  00007B19576735C2  pdsytrd_              Unknown  Unknown
+libmkl_scalapack_  00007B19577D770D  pdsyevr_              Unknown  Unknown
+libscalapackfx.so  00007B196C9BB0F9  scalapackfx_modul     Unknown  Unknown
+libscalapackfx.so  00007B196C9C0229  scalapackfx_modul     Unknown  Unknown
+libdftbplus.so     00007B196CDA296D  dftbp_dftbplus_ei     Unknown  Unknown
+libdftbplus.so     00007B196CE0FC80  dftbp_dftbplus_ma     Unknown  Unknown
+libdftbplus.so     00007B196CE0E1BD  dftbp_dftbplus_ma     Unknown  Unknown
+libdftbplus.so     00007B196CE0D3FA  dftbp_dftbplus_ma     Unknown  Unknown
+libdftbplus.so     00007B196CDFF26E  dftbp_dftbplus_ma     Unknown  Unknown
+libdftbplus.so     00007B196CDF10E5  dftbp_dftbplus_ma     Unknown  Unknown
+dftb+              0000000000429121  Unknown               Unknown  Unknown
+dftb+              000000000041FE5D  Unknown               Unknown  Unknown
+libc.so.6          00007B195922A1CA  Unknown               Unknown  Unknown
+libc.so.6          00007B195922A28B  __libc_start_main     Unknown  Unknown
+dftb+              000000000041FD75  Unknown               Unknown  Unknown

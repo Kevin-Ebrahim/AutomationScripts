@@ -1,0 +1,75 @@
+ Fermi distribution function
+ 
+ 
+ Total charge:    -0.00000000
+
+ Atomic gross charges (e)
+ Atom           Charge
+    1       0.12289921
+    2      -0.05807992
+    3      -0.02160643
+    4      -0.02160643
+    5      -0.02160643
+ 
+Nr. of electrons (up):      8.00000000
+Atom populations (up)
+ Atom       Population
+    1       3.87710079
+    2       1.05807992
+    3       1.02160643
+    4       1.02160643
+    5       1.02160643
+ 
+l-shell populations (up)
+ Atom Sh.   l       Population
+    1   1   0       1.19525180
+    1   2   1       2.68184899
+    2   1   0       1.05807992
+    3   1   0       1.02160643
+    4   1   0       1.02160643
+    5   1   0       1.02160643
+ 
+Orbital populations (up)
+ Atom Sh.   l   m       Population  Label
+    1   1   0   0       1.19525180  s
+    1   2   1  -1       0.89394966  p_y
+    1   2   1   0       0.89394966  p_z
+    1   2   1   1       0.89394966  p_x
+    2   1   0   0       1.05807992  s
+    3   1   0   0       1.02160643  s
+    4   1   0   0       1.02160643  s
+    5   1   0   0       1.02160643  s
+ 
+Fermi level:                         0.0228070697 H            0.6206 eV
+Band energy:                        -3.0326127840 H          -82.5216 eV
+TS:                                  0.0000000000 H            0.0000 eV
+Band free energy (E-TS):            -3.0326127840 H          -82.5216 eV
+Extrapolated E(0K):                 -3.0326127840 H          -82.5216 eV
+Output electrons (q):      8.0000000000
+ 
+Energy H0:                          -3.2268921754 H          -87.8082 eV
+Energy ext. field:                  -0.0078418935 H           -0.2134 eV
+Total Electronic energy:            -3.2347340689 H          -88.0216 eV
+Repulsive energy:                    0.0146728737 H            0.3993 eV
+Total energy:                       -3.2200611952 H          -87.6223 eV
+Extrapolated to 0:                  -3.2200611952 H          -87.6223 eV
+Total Mermin free energy:           -3.2200611952 H          -87.6223 eV
+Force related energy:               -3.2200611952 H          -87.6223 eV
+ 
+Non-constrained calculation
+ 
+Non-SCC calculation
+ 
+Total Forces
+    1     -0.002911031849     -0.002911031849     -0.002911031849
+    2      0.004783799262      0.004783799262      0.004783799262
+    3     -0.002533672669     -0.002533672669      0.003194577926
+    4     -0.002533672669      0.003194577926     -0.002533672669
+    5      0.003194577926     -0.002533672669     -0.002533672669
+ 
+Maximal derivative component:        0.478380E-02 au
+ 
+Dipole moment:   -0.04333732   -0.04333732   -0.04333732 au
+Dipole moment:   -0.11015250   -0.11015250   -0.11015250 Debye
+ 
+ 

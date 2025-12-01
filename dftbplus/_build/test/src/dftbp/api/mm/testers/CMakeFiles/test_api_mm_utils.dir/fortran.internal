@@ -1,5 +1,0 @@
-# The fortran modules provided by this target.
-provides
- extchargepot.mod
- extchargepotgen.mod
- testhelpers.mod

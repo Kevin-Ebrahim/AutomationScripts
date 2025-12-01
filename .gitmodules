@@ -1,0 +1,3 @@
+[submodule "dftbplus/dftbplus_src"]
+	path = dftbplus/dftbplus_src
+	url = https://github.com/dftbplus/dftbplus.git

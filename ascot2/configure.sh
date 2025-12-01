@@ -12,6 +12,10 @@ fi
 
 echo "Configuring ASCOT5 build environment in $ASCOT_DIR..."
 
+# Loading environement variables
+module use $HOME/modulefiles
+module load hdf5/1.14.6
+
 # Ensure MPI compiler wrappers are used for building (especially for HDF5).
 # The HDF5 parallel compiler (h5pcc) will automatically include correct MPI/HDF5 flags.
 export CC="mpicc"

@@ -1,145 +1,41 @@
 # =============================================================================
-# Makefile for building and installing DFTB+ on a cluster
-#
-# LOCATION: ~/AutomationScripts/dftbplus/Makefile
-#
-# ----- PREREQUISITES (Run this on ALL nodes first!) -----
-# sudo apt update
-# sudo apt install build-essential gfortran cmake git \
-#                  openmpi-bin libopenmpi-dev \
-#                  libopenblas-dev libscalapack-openmpi-dev
-#
-# ----- USAGE -----
-# make dftbplus-help       # Show this help message
-# make dftbplus-all        # Check deps, download, build, and install DFTB+
-# make dftbplus-test       # Run tests after building
-# make dftbplus-clean      # Remove the build directory
-#
+# Makefile for High-Performance DFTB+ (Intel/MKL Build)
 # =============================================================================
 
-# --- User Configuration ---
-# Version to install
-VERSION     := 24.1
+# Define shell to ensure source works
+SHELL := /bin/bash
 
-# Install destination (Updated to match your ~/apps structure)
-# Note: I corrected the typo 'dtfb+' to 'dftbplus' for the new folder
-PREFIX      := $(HOME)/apps/dftbplus
+# --- Targets ---
 
-# Path for Slater-Koster files
-SK_PATH     := $(HOME)/dftbplus-skfiles
+.PHONY: all deps build clean test help
 
-# System dependencies
-DEPS        := build-essential gfortran cmake git \
-               openmpi-bin libopenmpi-dev \
-               libopenblas-dev libscalapack-openmpi-dev
+all: build
 
-# --- Internal Variables ---
-SRC_DIR     := dftbplus
-BUILD_DIR   := _build
-INSTALL_DIR := $(PREFIX)/$(VERSION)
+# 1. Install OS level tools (requires sudo)
+deps:
+	@chmod +x scripts/01_install_os_deps.sh
+	@./scripts/01_install_os_deps.sh
 
-# CMake configuration
-# We explicitly point to the ScaLAPACK library per documentation advice.
-CMAKE_OPTS := -DCMAKE_INSTALL_PREFIX=$(INSTALL_DIR) \
-              -DWITH_MPI=YES \
-              -DWITH_SCALAPACK=YES \
-              -DWITH_API=YES \
-              -DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/openmpi" \
-              -DSCALAPACK_LIBRARY="/usr/lib/x86_64-linux-gnu/libscalapack-openmpi.so"
+# 2. Build with Intel Compilers and MKL
+# Note: We source the env setup inside the shell command to ensure vars persist
+build:
+	@chmod +x scripts/00_env_setup.sh
+	@chmod +x scripts/02_build_intel.sh
+	@source ./scripts/00_env_setup.sh && ./scripts/02_build_intel.sh
 
-# Tools
-GIT         := git
-CMAKE       := cmake
-MAKE        := make
-MKDIR       := mkdir -p
-RM          := rm -rf
+# 3. Clean build artifacts
+clean:
+	@echo "Removing build directory..."
+	@rm -rf _build_intel
 
-# Use 4 parallel jobs for compilation
-MAKEFLAGS   += -j4
+# 4. Quick Test (Run ctest)
+test:
+	@source ./scripts/00_env_setup.sh && cd _build_intel && ctest
 
-# =============================================================================
-
-.PHONY: dftbplus-all dftbplus-build dftbplus-configure dftbplus-download \
-        dftbplus-install dftbplus-test dftbplus-download-testdata \
-        dftbplus-skfiles dftbplus-clean dftbplus-help dftbplus-check-deps
-
-# Default target
-all: dftbplus-all
-dftbplus-all: dftbplus-install
-
-# Installs the program
-dftbplus-install: dftbplus-build
-	@echo "------------------------------------------------------------------"
-	@echo "Installing DFTB+ to $(INSTALL_DIR)..."
-	@echo "------------------------------------------------------------------"
-	@cd $(BUILD_DIR) && $(MAKE) install
-	@echo "------------------------------------------------------------------"
-	@echo "✅ DFTB+ $(VERSION) installed to $(INSTALL_DIR)"
-	@echo ""
-	@echo "NEXT STEPS:"
-	@echo "1. Update your ~/.bashrc on ALL nodes:"
-	@echo "   export PATH=\"$(INSTALL_DIR)/bin:\$$PATH\""
-	@echo "   export DFTB_SK_PATH=\"$(SK_PATH)\""
-	@echo "2. Run 'source ~/.bashrc'"
-	@echo "------------------------------------------------------------------"
-
-# Compiles the program
-dftbplus-build: dftbplus-configure
-	@echo "------------------------------------------------------------------"
-	@echo "Building DFTB+ (using $(MAKEFLAGS) jobs)..."
-	@echo "------------------------------------------------------------------"
-	@$(MAKE) -C $(BUILD_DIR)
-
-# Configures the build
-dftbplus-configure: dftbplus-download dftbplus-check-deps
-	@echo "------------------------------------------------------------------"
-	@echo "Configuring build in $(BUILD_DIR)..."
-	@echo "------------------------------------------------------------------"
-	@$(MKDIR) -p $(BUILD_DIR)
-	@cd $(BUILD_DIR) && $(CMAKE) ../$(SRC_DIR) $(CMAKE_OPTS)
-
-# Downloads source and submodules
-dftbplus-download:
-	@if [ ! -d "$(SRC_DIR)" ]; then \
-		echo "Downloading DFTB+ source code..."; \
-		$(GIT) clone https://github.com/dftbplus/dftbplus.git $(SRC_DIR); \
-	fi
-	@echo "Updating git submodules..."
-	@cd $(SRC_DIR) && $(GIT) submodule update --init --recursive
-
-# Downloads test data
-dftbplus-download-testdata: dftbplus-download
-	@echo "Downloading test data..."
-	@cd $(SRC_DIR) && ./utils/get_opt_externals
-
-# Runs tests
-dftbplus-test: dftbplus-build dftbplus-download-testdata
-	@echo "------------------------------------------------------------------"
-	@echo "Running tests..."
-	@echo "------------------------------------------------------------------"
-	@cd $(BUILD_DIR) && ctest
-
-# Checks dependencies
-dftbplus-check-deps:
-	@echo "Checking system dependencies..."
-	@for pkg in $(DEPS); do \
-		dpkg -s $$pkg > /dev/null 2>&1 || \
-		(echo "Error: Missing $$pkg. Run 'sudo apt install $$pkg' on all nodes." && exit 1); \
-	done
-
-# Creates SK directory
-dftbplus-skfiles:
-	@echo "Creating Slater-Koster directory at $(SK_PATH)..."
-	@$(MKDIR) -p $(SK_PATH)
-
-# Cleanup
-dftbplus-clean:
-	@echo "Cleaning up build directory..."
-	@$(RM) $(BUILD_DIR)
-
-# Help
-help: dftbplus-help
-dftbplus-help:
-	@echo "DFTB+ Automation Script"
-	@echo "Installs to: $(INSTALL_DIR)"
-	@echo "Usage: make dftbplus-all"
+help:
+	@echo "DFTB+ Intel Speed Build"
+	@echo "-----------------------"
+	@echo "make deps   -> Install git/cmake (requires sudo)"
+	@echo "make build  -> Compile with icx/ifx and MKL -O3 -xHost"
+	@echo "make test   -> Run test suite"
+	@echo "make clean  -> Remove build artifacts"

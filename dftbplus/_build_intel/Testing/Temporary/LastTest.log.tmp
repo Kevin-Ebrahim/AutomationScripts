@@ -1,0 +1,146 @@
+Start testing: Nov 30 13:58 UTC
+----------------------------------------------------------
+1/290 Testing: app/dftb+/extpot/CH4_gross
+1/290 Test: app/dftb+/extpot/CH4_gross
+Command: "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/autotest2" "-r" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+" "-w" "/home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+" "-d" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/tagdiff" "-P" "env OMP_NUM_THREADS=1 mpiexec -n 1" "-p" "/home/witsa/AutomationScripts/dftbplus/_build_intel/app/dftb+/dftb+" "-G" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/globalpostrun.sh" "-s" "P,R,C,S" "extpot/CH4_gross"
+Directory: /home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+
+"app/dftb+/extpot/CH4_gross" start time: Nov 30 13:58 UTC
+Output:
+----------------------------------------------------------
+extpot/CH4_gross:	 Match.
+
+==============================================================================
+TEST SUMMARY
+------------------------------------------------------------------------------
+Match:
+    extpot/CH4_gross
+------------------------------------------------------------------------------
+Status: OK
+<end of output>
+Test time =   2.04 sec
+----------------------------------------------------------
+Test Passed.
+"app/dftb+/extpot/CH4_gross" end time: Nov 30 13:58 UTC
+"app/dftb+/extpot/CH4_gross" time elapsed: 00:00:02
+----------------------------------------------------------
+
+2/290 Testing: app/dftb+/extpot/CH4_net
+2/290 Test: app/dftb+/extpot/CH4_net
+Command: "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/autotest2" "-r" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+" "-w" "/home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+" "-d" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/tagdiff" "-P" "env OMP_NUM_THREADS=1 mpiexec -n 1" "-p" "/home/witsa/AutomationScripts/dftbplus/_build_intel/app/dftb+/dftb+" "-G" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/globalpostrun.sh" "-s" "P,R,C,S" "extpot/CH4_net"
+Directory: /home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+
+"app/dftb+/extpot/CH4_net" start time: Nov 30 13:58 UTC
+Output:
+----------------------------------------------------------
+extpot/CH4_net:	 Match.
+
+==============================================================================
+TEST SUMMARY
+------------------------------------------------------------------------------
+Match:
+    extpot/CH4_net
+------------------------------------------------------------------------------
+Status: OK
+<end of output>
+Test time =   0.91 sec
+----------------------------------------------------------
+Test Passed.
+"app/dftb+/extpot/CH4_net" end time: Nov 30 13:58 UTC
+"app/dftb+/extpot/CH4_net" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/290 Testing: app/dftb+/extpot/CH4_gross2
+3/290 Test: app/dftb+/extpot/CH4_gross2
+Command: "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/autotest2" "-r" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+" "-w" "/home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+" "-d" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/tagdiff" "-P" "env OMP_NUM_THREADS=1 mpiexec -n 1" "-p" "/home/witsa/AutomationScripts/dftbplus/_build_intel/app/dftb+/dftb+" "-G" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/globalpostrun.sh" "-s" "P,R,C,S" "extpot/CH4_gross2"
+Directory: /home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+
+"app/dftb+/extpot/CH4_gross2" start time: Nov 30 13:58 UTC
+Output:
+----------------------------------------------------------
+extpot/CH4_gross2:	 Match.
+
+==============================================================================
+TEST SUMMARY
+------------------------------------------------------------------------------
+Match:
+    extpot/CH4_gross2
+------------------------------------------------------------------------------
+Status: OK
+<end of output>
+Test time =   0.92 sec
+----------------------------------------------------------
+Test Passed.
+"app/dftb+/extpot/CH4_gross2" end time: Nov 30 13:58 UTC
+"app/dftb+/extpot/CH4_gross2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/290 Testing: app/dftb+/extpot/CH4_net2
+4/290 Test: app/dftb+/extpot/CH4_net2
+Command: "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/autotest2" "-r" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+" "-w" "/home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+" "-d" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/tagdiff" "-P" "env OMP_NUM_THREADS=1 mpiexec -n 1" "-p" "/home/witsa/AutomationScripts/dftbplus/_build_intel/app/dftb+/dftb+" "-G" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/globalpostrun.sh" "-s" "P,R,C,S" "extpot/CH4_net2"
+Directory: /home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+
+"app/dftb+/extpot/CH4_net2" start time: Nov 30 13:58 UTC
+Output:
+----------------------------------------------------------
+extpot/CH4_net2:	 Match.
+
+==============================================================================
+TEST SUMMARY
+------------------------------------------------------------------------------
+Match:
+    extpot/CH4_net2
+------------------------------------------------------------------------------
+Status: OK
+<end of output>
+Test time =   0.90 sec
+----------------------------------------------------------
+Test Passed.
+"app/dftb+/extpot/CH4_net2" end time: Nov 30 13:58 UTC
+"app/dftb+/extpot/CH4_net2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/290 Testing: app/dftb+/extpot/CH4_scc_gross
+5/290 Test: app/dftb+/extpot/CH4_scc_gross
+Command: "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/autotest2" "-r" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+" "-w" "/home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+" "-d" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/tagdiff" "-P" "env OMP_NUM_THREADS=1 mpiexec -n 1" "-p" "/home/witsa/AutomationScripts/dftbplus/_build_intel/app/dftb+/dftb+" "-G" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/globalpostrun.sh" "-s" "P,R,C,S" "extpot/CH4_scc_gross"
+Directory: /home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+
+"app/dftb+/extpot/CH4_scc_gross" start time: Nov 30 13:58 UTC
+Output:
+----------------------------------------------------------
+extpot/CH4_scc_gross:	 Match.
+
+==============================================================================
+TEST SUMMARY
+------------------------------------------------------------------------------
+Match:
+    extpot/CH4_scc_gross
+------------------------------------------------------------------------------
+Status: OK
+<end of output>
+Test time =   0.95 sec
+----------------------------------------------------------
+Test Passed.
+"app/dftb+/extpot/CH4_scc_gross" end time: Nov 30 13:58 UTC
+"app/dftb+/extpot/CH4_scc_gross" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/290 Testing: app/dftb+/extpot/CH4_scc_net
+6/290 Test: app/dftb+/extpot/CH4_scc_net
+Command: "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/autotest2" "-r" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+" "-w" "/home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+" "-d" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/tagdiff" "-P" "env OMP_NUM_THREADS=1 mpiexec -n 1" "-p" "/home/witsa/AutomationScripts/dftbplus/_build_intel/app/dftb+/dftb+" "-G" "/home/witsa/AutomationScripts/dftbplus/dftbplus_src/test/app/dftb+/bin/globalpostrun.sh" "-s" "P,R,C,S" "extpot/CH4_scc_net"
+Directory: /home/witsa/AutomationScripts/dftbplus/_build_intel/test/app/dftb+
+"app/dftb+/extpot/CH4_scc_net" start time: Nov 30 13:58 UTC
+Output:
+----------------------------------------------------------
+extpot/CH4_scc_net:	 Match.
+
+==============================================================================
+TEST SUMMARY
+------------------------------------------------------------------------------
+Match:
+    extpot/CH4_scc_net
+------------------------------------------------------------------------------
+Status: OK
+<end of output>
+Test time =   0.90 sec
+----------------------------------------------------------
+Test Passed.
+"app/dftb+/extpot/CH4_scc_net" end time: Nov 30 13:58 UTC
+"app/dftb+/extpot/CH4_scc_net" time elapsed: 00:00:00
+----------------------------------------------------------
+

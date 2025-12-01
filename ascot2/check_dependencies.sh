@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+module use $HOME/modulefiles
+module load hdf5/1.14.6
+
 # Commands we expect in PATH (no duplicates of package names below)
 REQUIRED_CMDS=(
     gcc

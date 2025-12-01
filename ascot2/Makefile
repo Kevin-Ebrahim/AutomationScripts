@@ -1,6 +1,6 @@
-.PHONY all check download configure build
+.PHONY: all check download configure build
 
-all: build
+all: configure
 
 check:
 	bash ./check_dependencies.sh
@@ -10,3 +10,7 @@ download: check
 
 build: download
 	bash ./build.sh
+
+configure: build
+	bash ./configure.sh
+

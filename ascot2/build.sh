@@ -6,6 +6,25 @@ ASCOT_VERSION="5.6.2"
 ASCOT_DIR="$HOME/benchmarks/ascot/ascot5-${ASCOT_VERSION}"
 ASCOT_MAIN_EXE="$ASCOT_DIR/build/ascot5_main"
 ASCOT_LIB="$ASCOT_DIR/build/libascot.so"
+MAKEFILE="$ASCOT_DIR/src/Makefile"
+
+module use $HOME/modulefiles
+module load hdf5/1.14.6
+
+if [[ ! -f "$MAKEFILE" ]]; then
+    echo "Error: Makefile not found at $MAKEFILE" >&2
+    exit 1
+fi
+
+echo "Patching $MAKEFILE to remove -shlib flags..."
+
+# Make a backup
+cp -v "$MAKEFILE" "${MAKEFILE}.bak_shlib"
+
+# Remove all instances of -shlib (with or without surrounding spaces)
+# This keeps everything else unchanged.
+sed -i 's/[[:space:]]-shlib//g' "$MAKEFILE"
+echo "Done. A backup was saved as ${MAKEFILE}.bak_shlib (first run)."
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [[ -x "$SCRIPT_DIR/check_dependencies.sh" ]]; then

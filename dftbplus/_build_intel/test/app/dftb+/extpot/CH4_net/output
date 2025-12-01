@@ -1,0 +1,91 @@
+|===============================================================================
+|
+|  DFTB+ development version (commit: e41035fc, base: 24.1)
+|
+|  Copyright (C) 2006 - 2025  DFTB+ developers group
+|
+|===============================================================================
+|
+|  When publishing results obtained with DFTB+, please cite the following
+|  reference:
+|
+|  * DFTB+, a software package for efficient approximate density functional
+|    theory based atomistic simulations, J. Chem. Phys. 152, 124101 (2020).
+|    [doi: 10.1063/1.5143190]
+|
+|  You should also cite additional publications crediting the parametrization
+|  data you use. Please consult the documentation of the SK-files for the
+|  references.
+|
+|===============================================================================
+
+Reading input file 'dftb_in.hsd'
+Parser version: 14
+
+--------------------------------------------------------------------------------
+***  Converting input from parser version  9 to parser version 14 ...
+WARNING!
+-> Keyword renamed to 'PrintForces'.
+Path: dftbplusinput/Analysis/CalculateForces
+Line: 32-32 (File: dftb_in.hsd)
+
+***  Done.
+
+Reading SK-files:
+/home/witsa/AutomationScripts/dftbplus/dftbplus_src/external/slakos/origin/mio-1-1/C-C.skf
+/home/witsa/AutomationScripts/dftbplus/dftbplus_src/external/slakos/origin/mio-1-1/C-H.skf
+/home/witsa/AutomationScripts/dftbplus/dftbplus_src/external/slakos/origin/mio-1-1/H-H.skf
+Done.
+
+
+Processed input in HSD format written to 'dftb_pin.hsd'
+
+Starting initialization...
+--------------------------------------------------------------------------------
+MPI processes:               1
+OpenMP threads:              1
+BLACS orbital grid size:     1 x 1
+BLACS atom grid size:        1 x 1
+Chosen random seed:          1415677787
+Current stacksize:           8 [Mb] (recommended: unlimited)
+WARNING!
+-> Current stacksize not set to unlimited or hard limit, which might cause
+   random crashes (e.g. segmentation faults). It is advised to unlimit the
+   stacksize by issuing 'ulimit -s unlimited' (Linux) or setting it to the 
+   hard limit by 'ulimit -s hard' (Mac) in advance.
+Mode:                        Static calculation
+Self consistent charges:     No
+Spin polarisation:           No
+Nr. of up electrons:             4.000000
+Nr. of down electrons:           4.000000
+Periodic boundaries:         No
+Electronic solver:           Relatively robust
+Electronic temperature:              0.316682E-03 H      0.861734E-02 eV
+Included shells:             C:  s, p
+                             H:  s
+Extra options:
+                             Mulliken analysis
+                             Force calculation
+Force type                   original
+Net on-site potentials at atoms (/ H)
+      1 :   0.551240E-01
+      2 :  -0.183747E-01
+
+--------------------------------------------------------------------------------
+
+***  Geometry step: 0
+
+ 
+Total Energy:                       -3.2950283294 H          -89.6623 eV
+Extrapolated to 0K:                 -3.2950283294 H          -89.6623 eV
+Total Mermin free energy:           -3.2950283294 H          -89.6623 eV
+Force related energy:               -3.2950283294 H          -89.6623 eV
+ 
+ 
+--------------------------------------------------------------------------------
+DFTB+ running times                          cpu [s]             wall clock [s]
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Missing                                +       0.01 (100.0%)       0.01 (100.0%)
+Total                                  =       0.01 (100.0%)       0.01 (100.0%)
+--------------------------------------------------------------------------------

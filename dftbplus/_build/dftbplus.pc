@@ -1,9 +1,0 @@
-Name: DFTB+
-Description: Library interface to DFTB+, a fast and efficient atomistic quantum mechanical simulation tool
-Version: 24.1
-URL: https://www.dftbplus.org
-
-Requires: mpifx scalapackfx
-Libs: -L/home/witsa/apps/dftbplus/24.1/lib -ldftbplus
-Libs.private: /usr/lib/x86_64-linux-gnu/libopenblas.so /usr/lib/x86_64-linux-gnu/libopenblas.so -lm -ldl -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/lib/x86_64-linux-gnu -L/lib -lgcc -lgcc_s -lc -lgcc -lgcc_s 
-Cflags: -I/home/witsa/apps/dftbplus/24.1/include/dftbplus/modfiles  

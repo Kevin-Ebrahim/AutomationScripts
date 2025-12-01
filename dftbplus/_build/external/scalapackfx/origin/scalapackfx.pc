@@ -1,9 +1,0 @@
-Name: scalapackfx
-Description: Modern Fortran wrappers for ScaLAPACK
-Version: 1.2.0
-URL: https://github.com/dftbplus/scalapackfx
-
-Requires: 
-Libs: -L/home/witsa/apps/dftbplus/24.1/lib -lscalapackfx
-Libs.private: 
-Cflags: -I/home/witsa/apps/dftbplus/24.1/include/dftbplus/modfiles

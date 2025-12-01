@@ -1,5 +1,7 @@
 .PHONY: all download configure build clean
 
+all: download configure build
+
 download:
 	bash ./Download.sh
 
@@ -12,4 +14,3 @@ build:
 clean:
 	bash ./Clean.sh
 
-all: download configure build
