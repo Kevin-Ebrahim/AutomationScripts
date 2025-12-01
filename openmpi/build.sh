@@ -52,7 +52,7 @@ popd >/dev/null
 
 mkdir -p "${MODULES_DIR}"
 
-MODULEFILE="${MODULES_DIR}/openmpi-${VERSION}-gcc-${GCC_VERSION}.lua"
+MODULEFILE="${MODULES_DIR}/${VERSION}.lua"
 cat >"${MODULEFILE}" <<EOF
 -- -*- lua -*-
 help([[
