@@ -14,7 +14,7 @@ conflict openblas
 # Ensure matching GCC runtime (for libgomp from OpenMP build)
 prereq gcc/15.2.0
 
-set root $HOME/tools/libraries/openblas/0.3.30
+set root /home/witsa/tools/libraries/openblas/0.3.30
 
 # Compile- and run-time paths
 prepend-path CPATH           $root/include
