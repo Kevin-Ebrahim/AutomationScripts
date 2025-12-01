@@ -38,6 +38,7 @@ if [[ -d amber24_src ]]; then
 else
     echo "[+] Extracting $AMBER24_TARBALL ..."
     tar xjf "$AMBER24_TARBALL"
+    mv pmemd24_src amber24_src
 fi
 
 # Ensure expected directories exist
