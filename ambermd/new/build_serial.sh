@@ -2,10 +2,10 @@
 set -Eeuo pipefail
 
 # Directory with the merged sources from script 1
-AMBER_SRC_DIR="${AMBER_SRC_DIR:-$HOME/benchmarks/amber/ambertools25_src}"
+AMBER_SRC_DIR="${AMBER_SRC_DIR:-$HOME/benchmarks/ambermd/ambertools25_src}"
 
 # Where to install Amber (serial + later MPI will go here)
-AMBER_INSTALL_DIR="${AMBER_INSTALL_DIR:-$HOME/benchmarks/amber/amber_builds}"
+AMBER_INSTALL_DIR="${AMBER_INSTALL_DIR:-$HOME/benchmarks/ambermd/amber_builds}"
 
 # Number of build threads
 NPROCS="${NPROCS:-$(nproc)}"
