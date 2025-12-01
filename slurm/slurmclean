@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# --- Remove Slurm client binaries in /usr/local/bin (keep your own tools) ---
+sudo rm -f /usr/local/bin/{sacct,sacctmgr,salloc,sattach,sbatch,sbcast,scancel,scontrol,sdiag,sinfo,sprio,squeue,sreport,sshare,srun,sstat,strigger}
+
+# --- Remove Slurm daemons in /usr/local/sbin (if present) ---
+sudo rm -f /usr/local/sbin/{slurmctld,slurmd,slurmdbd,slurmrestd}
+
+# --- Remove headers, pkgconfig, libs, and plugins under /usr/local ---
+sudo rm -rf /usr/local/include/slurm /usr/local/include/slurm*
+sudo rm -f  /usr/local/lib/pkgconfig/slurm.pc /usr/local/lib64/pkgconfig/slurm.pc
+sudo rm -f  /usr/local/lib/libslurm* /usr/local/lib64/libslurm*
+sudo rm -rf /usr/local/lib/slurm  /usr/local/lib64/slurm
+
+# Some distros drop plugins/libs here too:
+sudo rm -rf /usr/lib/slurm /usr/lib64/slurm /usr/lib/x86_64-linux-gnu/slurm
+sudo rm -f  /usr/lib/libslurm* /usr/lib64/libslurm* /usr/lib/x86_64-linux-gnu/libslurm*
+
+# --- Man pages and shared data (if Slurm installed them) ---
+sudo rm -rf /usr/local/share/slurm* /usr/local/share/doc/slurm*
+for sect in 1 5 8; do
+    sudo rm -f /usr/local/share/man/man${sect}/{sacct.*,sacctmgr.*,salloc.*,sattach.*,sbatch.*,sbcast.*,scancel.*,scontrol.*,sdiag.*,sinfo.*,sprio.*,squeue.*,sreport.*,sshare.*,srun.*,sstat.*,strigger.*}
+done
+
+# --- Configs, logs, state (controller/compute nodes as applicable) ---
+sudo rm -rf /etc/slurm /etc/logrotate.d/slurm
+sudo rm -f  /etc/default/{slurmd,slurmctld,slurmdbd,slurmrestd} /etc/sysconfig/{slurmd,slurmctld,slurmdbd,slurmrestd}
+sudo rm -f  /etc/tmpfiles.d/slurm.conf /usr/lib/tmpfiles.d/slurm.conf
+
+sudo rm -rf /var/spool/{slurm,slurmd,slurmctld,slurmdbd}
+sudo rm -rf /var/lib/{slurm,slurmd,slurmctld,slurmdbd}
+sudo rm -rf /run/{slurm,slurmd,slurmctld,slurmdbd} /var/run/{slurm,slurmd,slurmctld,slurmdbd}
+sudo rm -rf /var/log/slurm /var/log/{slurmctld.log,slurmd.log,slurmdbd.log}
+
+sudo rm -f /usr/local/etc/cgroup.conf
+sudo rm -f /usr/local/etc/slurm.conf
+
+# --- Stop & disable units first (ignore errors if missing) ---
+for svc in slurmctld slurmd slurmdbd slurmrestd; do
+    sudo systemctl disable --now "$svc" 2>/dev/null || true
+done
+
+# --- Remove systemd unit files and overrides (all common locations) ---
+UNIT_DIRS=(
+    /etc/systemd/system                 # admin-installed + overrides
+    /usr/lib/systemd/system             # vendor units (RHEL/CentOS/Alma/Rocky)
+    /lib/systemd/system                 # vendor units (Debian/Ubuntu)
+)
+for svc in slurmctld slurmd slurmdbd slurmrestd; do
+    for dir in "${UNIT_DIRS[@]}"; do
+        sudo rm -f  "$dir/$svc.service"
+        sudo rm -rf "$dir/$svc.service.d"
+        # sockets, timers (rare, but clean them if present)
+        sudo rm -f  "$dir/$svc.socket" "$dir/$svc.timer"
+    done
+done
+
+# --- Also clean any SysV remnants (older distros) ---
+sudo rm -f /etc/init.d/slurm* 2>/dev/null || true
+
+# --- Reload systemd and clear stale failures ---
+sudo systemctl daemon-reload
+sudo systemctl reset-failed
+
+# --- Verify nothing remains registered ---
+echo "Unit files still present (should be empty):"
+systemctl list-unit-files | grep -E '^(slurm(ctld|d|dbd|restd))' || echo "None"
+
+echo "Loaded units (should be empty/inactive):"
+systemctl list-units --all | grep -E 'slurm(ctld|d|dbd|restd)' || echo "None"
+
+sudo apt-get purge -y 'slurm-*'
+
+# --- Refresh loader cache in case libslurm* was cached ---
+sudo ldconfig
+
