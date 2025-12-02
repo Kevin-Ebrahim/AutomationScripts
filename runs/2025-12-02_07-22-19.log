@@ -1,0 +1,66 @@
+make[1]: Entering directory '/home/witsa/benchmarks/amber/pmemd24_src/test'
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd nonper && ./Run.egb6
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.egb6.save with mdout.egb6
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat && ./Run.pure_wat
+diffing mdout.pure_wat.save with mdout.pure_wat
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat && ./Run.pure_wat_nmr_temp_reg
+diffing mdout.pure_wat_nmr_temp.save with mdout.pure_wat_nmr_temp
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat && ./Run.vrand
+diffing mdout.vrand.save with mdout.vrand
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat && ./Run.frcdmp
+diffing mdout.pure_wat2.save with mdout.pure_wat2
+PASSED
+==============================================================
+diffing mdfrc_cmp.save with mdfrc_cmp
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat_oct && ./Run.pure_wat_oct
+diffing mdout.pure_wat_oct.save with mdout.pure_wat_oct
+PASSED
+==============================================================
+diffing mdcrd.pure_wat_oct.save with mdcrd.pure_wat_oct
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat && ./Run.pure_wat_fswitch
+diffing mdout.pure_wat_fswitch.save with mdout.pure_wat_fswitch
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd 4096wat && ./Run.pure_wat_efield
+diffing mdout.pure_wat_efield.save with mdout.pure_wat_efield
+possible FAILURE:  check mdout.pure_wat_efield.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd alp && ./Run.alp
+diffing mdout.alp.save with mdout.alp
+possible FAILURE:  check mdout.alp.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd cytosine && ./Run.cytosine
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing cytosine.out.save with cytosine.out
+possible FAILURE:  check cytosine.out.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd dhfr && ./Run.dhfr
+diffing mdout.dhfr.save with mdout.dhfr
+possible FAILURE:  check mdout.dhfr.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd dhfr && ./Run.dhfr.min
+diffing mdout.dhfr.min.save with mdout.dhfr.min
+possible FAILURE:  check mdout.dhfr.min.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd dhfr && ./Run.dhfr.noshake
+diffing mdout.dhfr.noshake.save with mdout.dhfr.noshake
+possible FAILURE:  check mdout.dhfr.noshake.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd dhfr && ./Run.dhfr.bussi
+diffing mdout.dhfr.bussi.save with mdout.dhfr.bussi
+possible FAILURE: (ignored)  check mdout.dhfr.bussi.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/amber/pmemd24_src//bin/pmemd'; cd dhfr && ./Run.dhfr_reweight
