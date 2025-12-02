@@ -1,0 +1,897 @@
+make[1]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test'
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd nonper && ./Run.egb6
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.egb6.save with mdout.egb6
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat && ./Run.pure_wat
+diffing mdout.pure_wat.save with mdout.pure_wat
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat && ./Run.pure_wat_nmr_temp_reg
+diffing mdout.pure_wat_nmr_temp.save with mdout.pure_wat_nmr_temp
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat && ./Run.vrand
+diffing mdout.vrand.save with mdout.vrand
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat && ./Run.frcdmp
+diffing mdout.pure_wat2.save with mdout.pure_wat2
+PASSED
+==============================================================
+diffing mdfrc_cmp.save with mdfrc_cmp
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat_oct && ./Run.pure_wat_oct
+diffing mdout.pure_wat_oct.save with mdout.pure_wat_oct
+PASSED
+==============================================================
+diffing mdcrd.pure_wat_oct.save with mdcrd.pure_wat_oct
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat && ./Run.pure_wat_fswitch
+diffing mdout.pure_wat_fswitch.save with mdout.pure_wat_fswitch
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd 4096wat && ./Run.pure_wat_efield
+diffing mdout.pure_wat_efield.save with mdout.pure_wat_efield
+possible FAILURE:  check mdout.pure_wat_efield.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd alp && ./Run.alp
+diffing mdout.alp.save with mdout.alp
+possible FAILURE:  check mdout.alp.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cytosine && ./Run.cytosine
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing cytosine.out.save with cytosine.out
+possible FAILURE:  check cytosine.out.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd dhfr && ./Run.dhfr
+diffing mdout.dhfr.save with mdout.dhfr
+possible FAILURE:  check mdout.dhfr.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd dhfr && ./Run.dhfr.min
+diffing mdout.dhfr.min.save with mdout.dhfr.min
+possible FAILURE:  check mdout.dhfr.min.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd dhfr && ./Run.dhfr.noshake
+diffing mdout.dhfr.noshake.save with mdout.dhfr.noshake
+possible FAILURE:  check mdout.dhfr.noshake.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd dhfr && ./Run.dhfr.bussi
+diffing mdout.dhfr.bussi.save with mdout.dhfr.bussi
+possible FAILURE: (ignored)  check mdout.dhfr.bussi.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd dhfr && ./Run.dhfr_reweight
+diffing mdout.dhfr_reweight.save with mdout.dhfr_reweight
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd ff14ipq && ./Run.ff14ipq
+diffing mdout.ff14ipq.save with mdout.ff14ipq
+possible FAILURE:  check mdout.ff14ipq.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd variable_14 && ./Run.variable_14_ntb1
+diffing variable_14_ntb1.mdout.save with variable_14_ntb1.mdout
+possible FAILURE:  check variable_14_ntb1.mdout.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd variable_14 && ./Run.variable_14_igb1
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing variable_14_igb1.mdout.save with variable_14_igb1.mdout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd trx && ./Run.trx
+diffing mdout.trx.save with mdout.trx
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd trx && ./Run.trx.cpln.pmemd
+diffing mdout.trx.cpln.pmemd.save with mdout.trx.cpln.pmemd
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb_rna && ./Run.gbrna
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.gbrna.save with mdout.gbrna
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb_rna && ./Run.gbrna.min
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.gbrna.min.save with mdout.gbrna.min
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb_rna && ./Run.gbrna.ln
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.gbrna.ln.save with mdout.gbrna.ln
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd circ_dna && ./Run.circdna
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.circdna.save with mdout.circdna
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb2_trx && ./Run.trxox.nogbsa && ./Run.trxox.nogbsa prmtop_an
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox.nogbsa.save with mdout.trxox.nogbsa
+PASSED
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox.nogbsa.save with mdout.trxox.nogbsa
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb7_trx && ./Run.trxox_md
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox_md.save with mdout.trxox_md
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb8_trx && ./Run.trxox
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox.save with mdout.trxox
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gb8_trx && ./Run.trxox_md && ./Run.trxox_md prmtop_an
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox_md.save with mdout.trxox_md
+PASSED
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox_md.save with mdout.trxox_md
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd mcwat && ./Run.mcwat
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+diffing mdout.mcwat.save with mdout.mcwat
+possible FAILURE: (ignored)  check mdout.mcwat.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd RAMD && ./Run.ramd
+diffing pmemd.pme.ramd.save with pmemd.pme.ramd
+possible FAILURE:  check pmemd.pme.ramd.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd ff19SB && ./Run.pmemd
+
+diffing mdout.save.pmemd with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gbneck2nu/1hji && ./Run.1hji_md
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.1hji_md.save with mdout.1hji_md
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gbneck2nu/modified_nu/3p4a/ && ./Run.3p4a
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.3p4a.save with mdout.3p4a
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd alpb_trx && ./Run.trxox.nogbsa
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.trxox.nogbsa.save with mdout.trxox.nogbsa
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gbsa_xfin && ./Run.gbsa1
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.gbsa1.save with mdout.gbsa1
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gbsa_xfin && ./Run.gbsa3
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.gbsa3.save with mdout.gbsa3
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd tip4p && ./Run.tip4p
+diffing mdout.tip4p.save with mdout.tip4p
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd tip4p && ./Run.tip4p_mcbar
+diffing mdout.mcbar.tip4p.save with mdout.mcbar.tip4p
+PASSED
+==============================================================
+diffing mdout.mcbar_aniso.tip4p.save with mdout.mcbar_aniso.tip4p
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd tip4p && ./Run.tip4p_nve
+diffing mdout.tip4p_nve.save with mdout.tip4p_nve
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd tip5p && ./Run.tip5p
+diffing mdout.tip5p.save with mdout.tip5p
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd tip5p && ./Run.tip5p_nve
+diffing mdout.tip5p_nve.save with mdout.tip5p_nve
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnstph/implicit && ./Run.cnstph
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing cpout.save with cpout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnstph/explicit && ./Run.cnstph
+diffing mdout.pmemd.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing cpout.save with cpout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd phmd/implicit && ./Run.phmd
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing phmdout.save with phmdout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnste/implicit && ./Run.cnste
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.pmemd.save with mdout
+PASSED
+==============================================================
+diffing ceout.save with ceout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnste/explicit && ./Run.cnste
+diffing mdout.pmemd.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing ceout.save with ceout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnstphe/implicit && ./Run.cnstphe
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.pmemd.save with mdout
+PASSED
+==============================================================
+diffing cpout.save with cpout
+PASSED
+==============================================================
+diffing ceout.save with ceout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnstphe/explicit && ./Run.cnstphe
+diffing mdout.pmemd.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing cpout.save with cpout
+PASSED
+==============================================================
+diffing ceout.save with ceout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnstphe_merged/implicit && ./Run.cnstphe
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing cpeout.save with cpeout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd cnstphe_merged/explicit && ./Run.cnstphe
+diffing mdout.pmemd.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing cpeout.save with cpeout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr && ./Run.dhfr_charmm.min
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.dhfr_charmm.min.save with mdout.dhfr_charmm.min
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr && ./Run.dhfr_charmm.md
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.dhfr_charmm.save with mdout.dhfr_charmm
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr_cmap && ./Run.dhfr_charmm.md
+
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.dhfr_charmm.save with mdout.dhfr_charmm
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr_cmap_pbc && ./Run.dhfr_cmap_pbc_charmm_noshake.min
+
+diffing mdout.dhfr_charmm_noshake.min.save with mdout.dhfr_charmm_noshake.min
+possible FAILURE:  check mdout.dhfr_charmm_noshake.min.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr_cmap_pbc && ./Run.dhfr_cmap_pbc_charmm_noshake.md
+
+diffing mdout.dhfr_charmm_noshake.md.save with mdout.dhfr_charmm_noshake.md
+possible FAILURE:  check mdout.dhfr_charmm_noshake.md.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr_cmap_pbc && ./Run.dhfr_cmap_pbc_charmm.min
+
+diffing mdout.dhfr_charmm.min.save with mdout.dhfr_charmm.min
+possible FAILURE:  check mdout.dhfr_charmm.min.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd chamber/md_engine/dhfr_cmap_pbc && ./Run.dhfr_cmap_pbc_charmm.md
+
+diffing mdout.dhfr_charmm.md.save with mdout.dhfr_charmm.md
+possible FAILURE:  check mdout.dhfr_charmm.md.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gact_ips && ./Run.ips
+diffing mdout.ips.save with mdout.ips
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd csurften && ./Run.csurften_z-dir
+diffing mdout.csurften_z-dir.save with mdout.csurften_z-dir
+possible FAILURE:  check mdout.csurften_z-dir.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd lj_12-6-4 && ./Run.12-6-4
+diffing mdout.save with mdout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd csurften && ./Run.csurften_z-dir_npt_3
+diffing mdout.csurften_z-dir_npt_3.save with mdout.csurften_z-dir_npt_3
+possible FAILURE:  check mdout.csurften_z-dir_npt_3.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd nmropt && make pmemd_compat
+make[2]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test/nmropt'
+cd gb/angle && ./Run.nmropt_1angle_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing angle_gb_vs_t.save with angle_gb_vs_t
+PASSED
+==============================================================
+cd gb/distance && ./Run.dist_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing dist_gb_vs_t.save with dist_gb_vs_t
+PASSED
+==============================================================
+cd gb/distance_COM && ./Run.distCOM_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing distCOM_gb_vs_t.save with distCOM_gb_vs_t
+PASSED
+==============================================================
+cd gb/jar_distance && ./Run.jar_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing dist_gb_vs_t.save with dist_gb_vs_t
+PASSED
+==============================================================
+cd gb/jar_distance_COM && ./Run.jar_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing distCOM_gb_vs_t.save with distCOM_gb_vs_t
+PASSED
+==============================================================
+cd gb/jar_torsion && ./Run.jar_torsion
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing jartorsion_gb.dat.save with jartorsion_gb.dat
+PASSED
+==============================================================
+cd gb/nmropt_1_torsion && ./Run.nmropt_1_torsion
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing torsion_gb.dat.save with torsion_gb.dat
+PASSED
+==============================================================
+cd gb/tautp && ./Run.nmropt_1tautp_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+cd gb/temp && ./Run.nmropt_1temp_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+cd gb/angle_torsion_com/ && ./Run.angdihCOM_gb
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+PASSED
+==============================================================
+diffing angtorCOM_gb.save with angtorCOM_gb
+PASSED
+==============================================================
+cd pme/angle && ./Run.nmropt_1angle_pbc
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing angle_pbc_vs_t.save with angle_pbc_vs_t
+possible FAILURE:  check angle_pbc_vs_t.dif
+==============================================================
+cd pme/distance && ./Run.dist_pbc
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing dist_pbc_vs_t.save with dist_pbc_vs_t
+possible FAILURE:  check dist_pbc_vs_t.dif
+==============================================================
+cd pme/distance_COM && ./Run.distCOM_pbc
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing distCOM_pbc_vs_t.save with distCOM_pbc_vs_t
+possible FAILURE:  check distCOM_pbc_vs_t.dif
+==============================================================
+cd pme/jar_torsion && ./Run.jar_torsion
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing jartorsion_pbc.dat.save with jartorsion_pbc.dat
+possible FAILURE:  check jartorsion_pbc.dat.dif
+==============================================================
+cd pme/jar_distance && ./Run.jar_pbc
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing dist_pbc_vs_t.save with dist_pbc_vs_t
+possible FAILURE:  check dist_pbc_vs_t.dif
+==============================================================
+cd pme/jar_distance_COM && ./Run.jar_pbc
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing distCOM_pbc_vs_t.save with distCOM_pbc_vs_t
+possible FAILURE:  check distCOM_pbc_vs_t.dif
+==============================================================
+cd pme/nmropt_1_torsion && ./Run.nmropt_1_torsion
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing torsion_pbc.dat.save with torsion_pbc.dat
+possible FAILURE:  check torsion_pbc.dat.dif
+==============================================================
+cd pme/tautp && ./Run.nmropt_1tautp_pbc
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+cd pme/temp && ./Run.nmropt_1temp_pbc
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+cd pme/angle_torsion_com/ && ./Run.angdihCOM
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing angtorCOM.save with angtorCOM
+possible FAILURE:  check angtorCOM.dif
+==============================================================
+make[2]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test/nmropt'
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd rdc && ./Run.nmr
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing gcg.nmr.o.save with gcg.nmr.o
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd netcdf && make -k test OPT=yes
+make[2]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test/netcdf'
+  Netcdf MD Restart Write Test
+diffing textmd.rst7.save with textmd.rst7
+PASSED
+==============================================================
+  Netcdf Minimization Restart Write Test
+diffing textmin.rst7.save with textmin.rst7
+PASSED
+==============================================================
+  Restrained MD with netcdf Restart Reference Coords Test
+diffing md.rst7.save with md.rst7
+PASSED
+==============================================================
+diffing ene.dat.save with ene.dat
+PASSED
+==============================================================
+  Netcdf MD restart read test, ntx=5
+diffing md1.rst7 with md2.rst7
+PASSED
+==============================================================
+diffing ene1 with ene2
+PASSED
+==============================================================
+diffing md.crd.save with md.crd
+PASSED
+==============================================================
+  Netcdf MD restart read test, ntx=1
+diffing md1.rst7 with md2.rst7
+PASSED
+==============================================================
+diffing ene1 with ene2
+PASSED
+==============================================================
+diffing md.crd.save with md.crd
+PASSED
+==============================================================
+make[2]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test/netcdf'
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd baroscalingdir && ./Run.baroscalingdir_z-dir
+diffing mdout.baroscalingdir_z-dir.pmemd.save with mdout.baroscalingdir_z-dir
+possible FAILURE:  check mdout.baroscalingdir_z-dir.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd velocity_write && ./Run.vel1
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing vel1.vel.save with vel1.vel
+PASSED
+==============================================================
+diffing vel1.crd.save with vel1.crd
+PASSED
+==============================================================
+diffing vel1.frc.save with vel1.frc
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd velocity_write && ./Run.vel2
+The isynctraj flag is not yet supported by PMEMD. Skipping isynctraj test.
+
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/tip4p && ./Run.ec
+diffing etot.type5.save with etot.type5
+PASSED
+==============================================================
+diffing etot.type6.save with etot.type6
+PASSED
+==============================================================
+diffing etot.type7.save with etot.type7
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/tip4p && ./Run.npt
+diffing virial.type5.save with virial.type5
+PASSED
+==============================================================
+diffing virial.type6.save with virial.type6
+PASSED
+==============================================================
+diffing virial.type7.save with virial.type7
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/tip5p && ./Run.ec
+diffing etot.type8.save with etot.type8
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/tip5p && ./Run.npt
+diffing virial.type8.save with virial.type8
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/Methanol && ./Run.ec
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing etot.type10.save with etot.type10
+possible FAILURE:  check etot.type10.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/Methanol && ./Run.npt
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing virial.type10.save with virial.type10
+possible FAILURE:  check virial.type10.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/BromoBenzene && ./Run.ec
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing etot.type4.save with etot.type4
+possible FAILURE:  check etot.type4.dif
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing etot.type9.save with etot.type9
+possible FAILURE:  check etot.type9.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/BromoBenzene && ./Run.npt
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing virial.type4.save with virial.type4
+possible FAILURE:  check virial.type4.dif
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing virial.type9.save with virial.type9
+possible FAILURE:  check virial.type9.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/DimethylEther && ./Run.ec
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing etot.type8.save with etot.type8
+possible FAILURE:  check etot.type8.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/DimethylEther && ./Run.npt
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing virial.type8.save with virial.type8
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/BenzenePi && ./Run.ec
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing etot.type8.save with etot.type8
+possible FAILURE:  check etot.type8.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd virtual_sites/BenzenePi && ./Run.npt
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing virial.type8.save with virial.type8
+possible FAILURE:  check virial.type8.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/gasphase && ./Run.gasphase
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.gasphase.save with mdout.gasphase
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/campTI && ./Run.campTI
+diffing campTI.out.save with campTI.out
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/pheMTI && ./Run.0
+diffing out.0.save with out.0
+possible FAILURE:  check out.0.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/pheMTI && ./Run.1
+diffing out.1.save with out.1
+possible FAILURE:  check out.1.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/pheMTI && ./Run.lambda0
+diffing pheMTI0.out.save with pheMTI0.out
+possible FAILURE:  check pheMTI0.out.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/pheMTI && ./Run.lambda1
+diffing pheMTI1.out.save with pheMTI1.out
+possible FAILURE:  check pheMTI1.out.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/sodium && ./Run.sodium
+diffing md1.o.save with md1.o
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/ti_ggcc && ./Run.test1
+diffing out_icfe1_klambda_1_clambda_0.5.p1.save with out_icfe1_klambda_1_clambda_0.5.p1
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/ti_ggcc && ./Run.test2
+diffing out_icfe1_klambda_6_clambda_0.5.p1.save with out_icfe1_klambda_6_clambda_0.5.p1
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/softcore && ./Run_sc
+Running the Softcore potential tests
+==============================================================
+  Minimization test
+diffing out.0.save with out.0
+possible FAILURE: (ignored)  check out.0.dif
+==============================================================
+diffing restrt.0.save with restrt.0
+possible FAILURE: (ignored)  check restrt.0.dif
+==============================================================
+ 
+  Protein-Ligand complex test
+diffing out.save with out
+possible FAILURE:  check out.dif
+==============================================================
+diffing restrt.save with restrt
+possible FAILURE:  check restrt.dif
+==============================================================
+ 
+==============================================================
+  Protein-Ligand complex SSC(2) test
+diffing out.save with out
+possible FAILURE:  check out.dif
+==============================================================
+diffing restrt.save with restrt
+possible FAILURE:  check restrt.dif
+==============================================================
+ 
+==============================================================
+  Solvation free energy test
+diffing out.0.save with out.0
+possible FAILURE:  check out.0.dif
+==============================================================
+diffing restrt.0.save with restrt.0
+possible FAILURE:  check restrt.0.dif
+==============================================================
+diffing out2.0.save with out2.0
+possible FAILURE:  check out2.0.dif
+==============================================================
+diffing restrt2.0.save with restrt2.0
+possible FAILURE:  check restrt2.0.dif
+==============================================================
+ 
+==============================================================
+  Dynamic lambda test
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing out.0.save with out.0
+possible FAILURE: (ignored)  check out.0.dif
+==============================================================
+diffing restrt.0.save with restrt.0
+possible FAILURE: (ignored)  check restrt.0.dif
+==============================================================
+ 
+==============================================================
+  Restrained complex test
+diffing out.0.save with out.0
+possible FAILURE:  check out.0.dif
+==============================================================
+diffing restrt.0.save with restrt.0
+possible FAILURE:  check restrt.0.dif
+==============================================================
+ 
+==============================================================
+  Using softcore electrostatics
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+diffing out.0.save with out.0
+PASSED
+==============================================================
+diffing restrt.0.save with restrt.0
+PASSED
+==============================================================
+ 
+==============================================================
+Soft core test suite complete
+ 
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/softcore/tishake2vsite && ./Run.tishake2vsite
+diffing out.0.save with out.0
+possible FAILURE:  check out.0.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd pmemdTI/softcore/tishake2vsite && ./Run.tishake2vsite_vacuum
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing out2.0.save with out2.0
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd';  unset DO_PARALLEL; cd emil/emil_pmemd_gbsa && ./Run.emil EMIL
+DO_PARALLEL not set... testing emil in serial.
+diffing mdout.emil.0.0.save with mdout.emil.0.0
+PASSED
+==============================================================
+diffing emil.log.0.0.save with emil.log.0.0
+PASSED
+==============================================================
+diffing mdout.emil.0.1.save with mdout.emil.0.1
+PASSED
+==============================================================
+diffing emil.log.0.1.save with emil.log.0.1
+PASSED
+==============================================================
+diffing mdout.emil.0.9.save with mdout.emil.0.9
+PASSED
+==============================================================
+diffing emil.log.0.9.save with emil.log.0.9
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd';  unset DO_PARALLEL; cd emil/emil_pmemd_tip3p && ./Run.emil EMIL
+DO_PARALLEL not set... testing emil in serial.
+diffing mdout.emil.0.9.save with mdout.emil.0.9
+PASSED
+==============================================================
+diffing emil.log.0.9.save with emil.log.0.9
+PASSED
+==============================================================
+cd nfe && ./run-pmemd-serial.sh
+>>>>>>> doing 'abmd_ANALYSIS'
+diffing save.pmemd/mdout with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing save.pmemd/monitor.txt with monitor.txt
+possible FAILURE:  check monitor.txt.dif
+==============================================================
+>>>>>>> doing 'abmd_FLOODING'
+diffing save.pmemd/mdout with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing save.pmemd/monitor.txt with monitor.txt
+possible FAILURE:  check monitor.txt.dif
+==============================================================
+diffing umbrella.save.ncdump with umbrella.ncdump
+possible FAILURE:  check umbrella.ncdump.dif
+==============================================================
+diffing wt_umbrella.save.ncdump with wt_umbrella.ncdump
+possible FAILURE:  check wt_umbrella.ncdump.dif
+==============================================================
+>>>>>>> doing 'abmd_UMBRELLA'
+diffing save.pmemd/mdout with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing save.pmemd/monitor.txt with monitor.txt
+possible FAILURE:  check monitor.txt.dif
+==============================================================
+>>>>>>> doing 'smd'
+diffing save.pmemd/mdout with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing save.pmemd/smd.txt with smd.txt
+possible FAILURE:  check smd.txt.dif
+==============================================================
+>>>>>>> doing 'smd2'
+diffing save.pmemd/mdout with mdout
+PASSED
+==============================================================
+diffing save.pmemd/work.txt with work.txt
+PASSED
+==============================================================
+>>>>>>> doing 'pmd'
+diffing save.pmemd/mdout with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+diffing save.pmemd/pmd.txt with pmd.txt
+possible FAILURE:  check pmd.txt.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd gamd && make -k test OPT=pmemd
+make[2]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test/gamd'
+Testing GaMD with PME
+diffing pmemd.pme.gamd1.save with pmemd.pme.gamd1
+possible FAILURE:  check pmemd.pme.gamd1.dif
+==============================================================
+diffing pmemd.pme.gamd2.save with pmemd.pme.gamd2
+possible FAILURE:  check pmemd.pme.gamd2.dif
+==============================================================
+diffing pmemd.pme.gamd3.save with pmemd.pme.gamd3
+possible FAILURE:  check pmemd.pme.gamd3.dif
+==============================================================
+Testing GaMD with GB
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing pmemd.gb.gamd1.save with pmemd.gb.gamd1
+PASSED
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing pmemd.gb.gamd2.save with pmemd.gb.gamd2
+PASSED
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing pmemd.gb.gamd3.save with pmemd.gb.gamd3
+PASSED
+==============================================================
+make[2]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test/gamd'
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd amd && make -k test OPT=pmemd
+make[2]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test/amd'
+Testing AMD with PME
+diffing pmemd.pme.amd1.save with pmemd.pme.amd1
+possible FAILURE:  check pmemd.pme.amd1.dif
+==============================================================
+diffing pmemd.pme.amd2.save with pmemd.pme.amd2
+possible FAILURE:  check pmemd.pme.amd2.dif
+==============================================================
+diffing pmemd.pme.amd3.save with pmemd.pme.amd3
+possible FAILURE:  check pmemd.pme.amd3.dif
+==============================================================
+Testing AMD with GB
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing pmemd.gb.amd1.save with pmemd.gb.amd1
+PASSED
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing pmemd.gb.amd2.save with pmemd.gb.amd2
+PASSED
+==============================================================
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing pmemd.gb.amd3.save with pmemd.gb.amd3
+PASSED
+==============================================================
+make[2]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test/amd'
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd scaledMD && make -k test OPT=pmemd
+make[2]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test/scaledMD'
+Testing scaledMD with PME
+diffing mdout.save with mdout
+possible FAILURE:  check mdout.dif
+==============================================================
+make[2]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test/scaledMD'
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; unset DO_PARALLEL; cd kmmd/kmmd_pmemd    && ./Run.kmmd
+diffing mdout.save with mdout
+possible FAILURE: (ignored)  check mdout.dif
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; unset DO_PARALLEL; cd kmmd/kmmd_pmemd_gb && ./Run.kmmd
+diffing mdout.save with mdout
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd middle-scheme/4096wat && ./Run.pure_wat_middle_scheme
+diffing mdout.pure_wat_middle_scheme.save with mdout.pure_wat_middle_scheme
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd middle-scheme/DNA7 && ./Run.DNA_middle_scheme
+diffing mdout.DNA_middle_scheme.save with mdout.DNA_middle_scheme
+PASSED
+==============================================================
+export TESTsander='/home/witsa/benchmarks/ambermd/ambertools25///bin/pmemd'; cd middle-scheme/ETH && ./Run.ETH_middle_scheme
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+diffing mdout.ETH_middle_scheme.save with mdout.ETH_middle_scheme
+PASSED
+==============================================================
+make[1]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test'
+make[1]: Entering directory '/home/witsa/benchmarks/ambermd/ambertools25/test'
+
+Finished serial test suite for Amber 24 at Tue Dec  2 11:32:22 AM UTC 2025.
+
+make[1]: Leaving directory '/home/witsa/benchmarks/ambermd/ambertools25/test'
+124 file comparisons passed
+89 file comparisons failed (7 of which can be ignored)
+0 tests experienced errors
+Test log file saved as /home/witsa/benchmarks/amber/pmemd24_src/logs/test_amber_serial/2025-12-02_11-28-49.log
+Test diffs file saved as /home/witsa/benchmarks/amber/pmemd24_src/logs/test_amber_serial/2025-12-02_11-28-49.diff
