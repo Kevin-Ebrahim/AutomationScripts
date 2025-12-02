@@ -55,7 +55,7 @@ if grep -q "DMPI=TRUE" run_cmake; then
 fi
 
 # Optional: pre-empt the conda-libmamba-solver issue
-export CONDA_SOLVER="${CONDA_SOLVER:-classic}"
+#export CONDA_SOLVER="${CONDA_SOLVER:-classic}"
 
 echo "[+] Running run_cmake for serial build ..."
 ./run_cmake
